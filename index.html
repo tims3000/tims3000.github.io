@@ -1,1 +1,62 @@
-....
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Room</title>
+    <style>
+        /* Zorg dat body en html de volledige hoogte gebruiken */
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Achtergrond instellen */
+        body {
+            background: url('img/startachtergrond.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+
+        /* Titel styling */
+        h1 {
+            font-size: 5em;
+            margin: 0.2em 0;
+        }
+
+        /* Subtitel styling */
+        p {
+            font-size: 2em;
+            margin: 0.5em 0 2em 0;
+        }
+
+        /* Startknop styling */
+        .start-button {
+            padding: 1em 2em;
+            font-size: 1.5em;
+            background-color: #ffcc00;
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .start-button:hover {
+            transform: scale(1.1);
+            background-color: #ffaa00;
+        }
+    </style>
+</head>
+<body>
+    <h1>Escape Room</h1>
+    <p>Breek in de juwelier</p>
+    <a href="escape.html"><button class="start-button">Start</button></a>
+</body>
+</html>
