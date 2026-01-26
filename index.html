@@ -12,27 +12,17 @@
             font-family: 'Arial', sans-serif;
         }
 
-body {
-    /* Achtergrond volledig scherm */
-    background-image: url('img/startachtergrond.jpg');
-    background-size: cover;      /* vult altijd het scherm */
-    background-position: center; /* centreert de afbeelding */
-    background-repeat: no-repeat; /* geen herhaling */
-    
-    /* Flex voor centreren van content */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    height: 100vh; /* volledige viewport hoogte */
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    color: white;
-    text-align: center;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-}
-
+        /* Achtergrond instellen */
+        body {
+            background: url('img/startachtergrond.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
 
         /* Titel styling */
         h1 {
