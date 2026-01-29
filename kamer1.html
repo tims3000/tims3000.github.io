@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Escape Room – Kamer 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+    <style>
+body {
+    background: #1e1e1e;
+    color: #f5f5f5;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 40px;
+}
+
+h1, h2, h3 {
+    color: #e0c36a;
+}
+
+.story {
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.scroll {
+    background: #2c2c2c;
+    border: 2px solid #e0c36a;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.code {
+    font-size: 2em;
+    letter-spacing: 5px;
+    text-align: center;
+}
+
+.note {
+    font-size: 0.9em;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.hints ul {
+    list-style: square;
+}
+
+.input-area {
+    margin-top: 30px;
+}
+
+input {
+    padding: 10px;
+    font-size: 1em;
+    width: 200px;
+}
+
+button {
+    padding: 10px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#feedback {
+    margin-top: 15px;
+    font-weight: bold;
+}
+    </style>
+
+<body>
+
+<div class="container">
+    <h1>🏛️ Kamer 1 – De Romeinse Code</h1>
+
+    <p class="story">
+        Je onderschept een geheime boodschap van een Romeinse boodschapper.<br>
+        De code lijkt duidelijk… maar de deur blijft gesloten.
+    </p>
+
+    <div class="scroll">
+        <h2>📜 Onderschepte boodschap</h2>
+        <p class="code">XOB KLQW</p>
+        <p class="note">“Alleen zij die denken als een Romein, mogen verder.”</p>
+    </div>
+
+    <div class="hints">
+        <h3>🔍 Wat je vindt in de kamer:</h3>
+        <ul>
+            <li>Een buste met de naam <strong>Julius Caesar</strong></li>
+            <li>Een Romeinse kalender waar <strong>III</strong> is omcirkeld</li>
+            <li>De letters <strong>A → D</strong> gekrast in steen</li>
+        </ul>
+    </div>
+
+    <div class="input-area">
+        <label for="answer">🔐 Voer de code in:</label><br>
+        <input type="text" id="answer" placeholder="Typ hier de code">
+        <button onclick="checkCode()">Open de deur</button>
+        <p id="feedback"></p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+
+<script>
+function caesarShift(str, shift) {
+    return str.toUpperCase().replace(/[A-Z]/g, function(char) {
+        let code = char.charCodeAt(0);
+        return String.fromCharCode(((code - 65 + shift) % 26) + 65);
+    });
+}
+
+function checkCode() {
+    const input = document.getElementById("answer").value.toUpperCase();
+    const intercepted = "XOB KLQW";
+    const correct = caesarShift(intercepted, 3); // +3 Caesar
+
+    const feedback = document.getElementById("feedback");
+
+    if (input === correct) {
+        feedback.style.color = "lightgreen";
+        feedback.textContent = "✔ De deur schuift open...";
+        setTimeout(() => {
+            window.location.href = "kamer2.html";
+        }, 1500);
+    } else {
+        feedback.style.color = "red";
+        feedback.textContent = "✖ Niets gebeurt. Denk Romeins.";
+    }
+}
+</script>
+
+</html>
