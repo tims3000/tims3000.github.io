@@ -77,21 +77,21 @@
 
 <script>
     // Check of speler al een sleutel heeft
-    const hasKey = () => localStorage.getItem("hasKey") === "true";
+    const Key = () => localStorage.getItem("Key") === "true";
 
     // BOX CLICK
     document.getElementById("box").addEventListener("click", () => {
-        if (hasKey()) {
+        if (Key()) {
             alert("De box is al leeg. Je hebt de sleutel al 🔑");
             return;
         }
 
-        const code = prompt("Voer de code in om de box te openen:");
+        const code = prompt("Voer de code in om de box te openen en de sleutel te krijgen:");
 
         if (!code) return;
 
         if (code.toLowerCase() === "kelly") {
-            localStorage.setItem("hasKey", "true");
+            localStorage.setItem("Key", "true");
             alert("✔️ Juist! Je hebt een sleutel gevonden 🔑");
         } else {
             alert("❌ Verkeerde code. De box blijft dicht.");
@@ -100,7 +100,7 @@
 
     // LOCK CLICK
     document.getElementById("lock").addEventListener("click", () => {
-        if (!hasKey()) {
+        if (!Key()) {
             alert("🔒 De deur zit op slot. Je hebt een sleutel nodig.");
         } else {
             window.location.href = "garage.html"; // volgende pagina
