@@ -44,10 +44,32 @@
     opacity: 0.95;        /* subtiel effect */
 }
 
+.letter-stack {
+    position: absolute;
+    top: 50%;           /* midden van scherm */
+    left: 50%;
+    transform: translate(-50%, -130%); /* boven de box positioneren */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;           /* afstand tussen letters */
+}
+
+.letter-stack img {
+    width: 50px;       /* grootte van de letters, pas aan naar smaak */
+    opacity: 0.95;
+}
 
     </style>
 </head>
 <body>
+
+<div class="letter-stack">
+    <img src="img/K.png" alt="K">
+    <img src="img/E.png" alt="E">
+    <img src="img/L.png" alt="L">
+    <img src="img/L.png" alt="L">
+    <img src="img/Y.png" alt="Y">
+</div>
 
 <img src="img/box.webp" alt="Box" class="center-box">
 <img src="img/lock.png" alt="Lock" class="lock-icon">
