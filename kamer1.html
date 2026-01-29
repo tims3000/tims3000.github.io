@@ -59,9 +59,24 @@
     opacity: 0.95;
 }
 
+#poster {
+    position: absolute;
+    top: 50%;
+    left: 2.5%;
+    transform: translate(-50%, -50%);
+    width: 120px;       /* pas aan naar wens */
+    cursor: pointer;    /* geeft aan dat je erop kan klikken */
+    z-index: 10;        /* boven de letters */
+}
+
+
     </style>
 </head>
 <body>
+
+    <!-- Poster die de letters bedekt -->
+<img src="img/poster.jpeg" alt="Poster" id="poster">
+
 
 <div class="letter-stack">
     <img src="img/K.png" alt="K">
@@ -78,6 +93,12 @@
 <script>
     // Check of speler al een sleutel heeft
     const Key = () => localStorage.getItem("Key") === "true";
+
+        // Poster click
+    const poster = document.getElementById("poster");
+    poster.addEventListener("click", () => {
+        poster.style.display = "none"; // poster verdwijnt
+    });
 
     // BOX CLICK
     document.getElementById("box").addEventListener("click", () => {
