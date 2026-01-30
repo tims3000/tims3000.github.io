@@ -1,45 +1,48 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escape Room</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escape Room</title>
 
-    <!-- Google Font voor mysterious vibe -->
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+<!-- Google Font voor mysterious vibe -->
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
+<style>
+html, body {
+    height: 100%;
+    margin: 0;
+}
 
-        body {
-            background: url('img/achtergrondlaptop.webp') no-repeat center center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: #f5f5f5;
-            text-align: center;
-            font-family: 'Montserrat', sans-serif;
-            text-shadow: 0 0 10px rgba(0,0,0,0.9);
-        }
-
-        .morse {
+body {
+    background: url('img/achtergrondlaptop.webp') no-repeat center center/cover;
+    background-size: cover;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    justify-content: flex-start; /* helemaal boven */
+    align-items: flex-start;    /* helemaal links */
+    padding: 20px;              /* beetje ruimte van de rand */
+    color: #f5f5f5;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 0 0 10px rgba(0,0,0,0.9);
+}
+
+.morse {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* grotere afstand tussen regels */
 }
 
 .morse-line {
     display: flex;
-    gap: 8px;
+    gap: 15px; /* grotere afstand tussen plaatjes */
+    flex-wrap: wrap; /* zorgt dat het netjes blijft bij grote iconen */
 }
 
 .dot, .dash, .space {
-    width: 30px;
-    height: 30px;
+    width: 80px;  /* realistische desktop icon grootte */
+    height: 80px;
 }
 
 .dot {
@@ -52,9 +55,10 @@
 
 .space {
     background: transparent;
+    width: 80px;  /* lege ruimte even groot als icon */
+    height: 80px;
 }
-
-    </style>
+</style>
 </head>
 <body>
 
@@ -125,7 +129,6 @@
     </div>
 
 </div>
-
 
 </body>
 </html>
