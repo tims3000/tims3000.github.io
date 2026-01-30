@@ -79,11 +79,11 @@
 
 
 <div class="letter-stack">
-    <img src="img/K.png" alt="K">
     <img src="img/E.png" alt="E">
-    <img src="img/L.png" alt="L">
-    <img src="img/L.png" alt="L">
+    <img src="img/R.png" alt="R">
     <img src="img/Y.png" alt="Y">
+    <img src="img/L.png" alt="L">
+    <img src="img/K.png" alt="K">
 </div>
 
 <img src="img/box.webp" alt="Box" class="center-box" id="box">
@@ -92,7 +92,7 @@
 
 <script>
     // Check of speler al een sleutel heeft
-    const Key = () => localStorage.getItem("Key") === "true";
+    const Key1 = () => localStorage.getItem("Key1") === "true";
 
         // Poster click
     const poster = document.getElementById("poster");
@@ -102,7 +102,7 @@
 
     // BOX CLICK
     document.getElementById("box").addEventListener("click", () => {
-        if (Key()) {
+        if (Key1()) {
             alert("De box is al leeg. Je hebt de sleutel al 🔑");
             return;
         }
@@ -111,8 +111,8 @@
 
         if (!code) return;
 
-        if (code.toLowerCase() === "kelly") {
-            localStorage.setItem("Key", "true");
+        if (code.toLowerCase() === "erylk") {
+            localStorage.setItem("Key1", "true");
             alert("✔️ Juist! Je hebt een sleutel gevonden 🔑");
         } else {
             alert("❌ Verkeerde code. De box blijft dicht.");
@@ -121,7 +121,7 @@
 
     // LOCK CLICK
     document.getElementById("lock").addEventListener("click", () => {
-        if (!Key()) {
+        if (!Key1()) {
             alert("🔒 De deur zit op slot. Je hebt een sleutel nodig.");
         } else {
             window.location.href = "kamer1.2.html"; // volgende pagina
