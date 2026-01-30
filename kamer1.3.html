@@ -16,20 +16,58 @@ body {
     background-size: cover;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* helemaal boven */
-    align-items: flex-start;    /* helemaal links */
-    padding: 0;                 /* geen padding zodat alles tegen de rand zit */
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0;
     color: #f5f5f5;
     font-family: 'Montserrat', sans-serif;
     text-shadow: 0 0 10px rgba(0,0,0,0.9);
-    position: relative;         /* nodig voor absolute positioning van icon */
+    position: relative;
 }
 
+/* Container voor icoon + tekst */
+#plattegrond-container {
+    position: absolute;
+    top: 10px;       /* beetje afstand van de rand */
+    right: 10px;
+    text-align: center;
+    cursor: pointer; /* laat zien dat het klikbaar is */
+}
+
+#plattegrond-container img {
+    width: 120px;    /* pas grootte aan */
+    height: auto;
+}
+
+#plattegrond-container span {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #fff;
+}
 </style>
 </head>
 <body>
 
+<div id="plattegrond-container" onclick="checkPassword()">
+    <img src="img/plattegrond.webp" alt="Plattegrond">
+    <span>Plattegrond Juwelier</span>
+</div>
 
+<script>
+function checkPassword() {
+    let input = prompt("Voer het wachtwoord in:");
+    const correct = "cgjxp";
+
+    if(input === null) return; // cancel knop
+    if(input.toLowerCase() === correct) {
+        alert("Wachtwoord correct! Je gaat door naar de volgende pagina.");
+        window.location.href = "volgende_pagina.html"; // pas aan naar jouw volgende pagina
+    } else {
+        alert("Fout wachtwoord. Probeer het opnieuw!");
+    }
+}
+</script>
 
 </body>
 </html>
