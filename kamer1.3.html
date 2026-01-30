@@ -1,138 +1,34 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Escape Room</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Room</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <!-- Google Font voor mysterious vibe -->
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
-<style>
-html, body {
-    height: 100%;
-    margin: 0;
-}
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
 
-body {
-    background: url('img/achtergrondlaptop.webp') no-repeat center center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Montserrat', sans-serif;
-    color: white;
-}
+        body {
+            background: url('img/achtergrondlaptop.webp') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #f5f5f5;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            text-shadow: 0 0 10px rgba(0,0,0,0.9);
+        }
 
-/* Laptop scherm */
-.screen {
-    background: rgba(0,0,0,0.6);
-    padding: 30px;
-    border-radius: 15px;
-}
-
-/* Elke regel = 1 letter */
-.row {
-    display: flex;
-    justify-content: center;
-    margin: 10px 0;
-}
-
-/* Icons */
-.row img {
-    width: 60px;
-    margin: 5px;
-    cursor: pointer;
-}
-
-/* Map */
-.folder {
-    border: 2px solid gold;
-    border-radius: 10px;
-}
-
-/* Code popup */
-#codeBox {
-    display: none;
-    margin-top: 20px;
-    text-align: center;
-}
-
-input {
-    padding: 10px;
-    font-size: 18px;
-    width: 150px;
-    text-align: center;
-}
-
-button {
-    margin-left: 10px;
-    padding: 10px 15px;
-    cursor: pointer;
-}
-</style>
+    </style>
 </head>
-
 <body>
-
-<div class="screen">
-
-    <!-- LETTER 1 -->
-    <div class="row">
-        <img src="img/icon1.jpg">
-        <img src="img/icon1.jpg">
-        <img src="img/icon1.jpg">
-        <img src="img/icon1.jpg">
-    </div>
-
-    <!-- LETTER 2 -->
-    <div class="row">
-        <img src="img/icon1.jpg">
-        <img src="img/icon1.jpg">
-        <img src="img/icon1.jpg">
-        <img src="img/folder.png" class="folder" onclick="openFolder()">
-        <img src="img/icon1.jpg">
-    </div>
-
-    <!-- LETTER 3 -->
-    <div class="row">
-        <img src="img/icon1.jpg">
-        <img src="img/icon1.jpg">
-        <img src="img/icon1.jpg">
-        <img src="img/icon1.jpg">
-        <img src="img/icon1.jpg">
-    </div>
-
-    <!-- LETTER 4 -->
-    <div class="row">
-        <img src="img/icon1.jpg">
-        <img src="img/icon1.jpg">
-        <img src="img/icon1.jpg">
-    </div>
-
-    <!-- CODE INVOER -->
-    <div id="codeBox">
-        <p>Voer de 4-letter code in:</p>
-        <input type="text" id="codeInput" maxlength="4">
-        <button onclick="checkCode()">OK</button>
-    </div>
-
-</div>
-
-<script>
-function openFolder() {
-    document.getElementById("codeBox").style.display = "block";
-}
-
-function checkCode() {
-    const code = document.getElementById("codeInput").value.toUpperCase();
-    
-    if(code === "TEST") { // ← JOUW OPLOSSING
-        alert("Correct! Je vindt de geheime plattegrond 🔓");
-        // window.location.href = "plattegrond.html";
-    } else {
-        alert("Foute code...");
-    }
-}
-</script>
 
 </body>
 </html>
