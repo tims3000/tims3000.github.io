@@ -26,9 +26,106 @@
             text-shadow: 0 0 10px rgba(0,0,0,0.9);
         }
 
+        .morse {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.morse-line {
+    display: flex;
+    gap: 8px;
+}
+
+.dot, .dash, .space {
+    width: 30px;
+    height: 30px;
+}
+
+.dot {
+    background: url('img/morse.webp') no-repeat center/contain;
+}
+
+.dash {
+    background: url('img/morse.webp') no-repeat center/contain;
+}
+
+.space {
+    background: transparent;
+}
+
     </style>
 </head>
 <body>
+
+<div class="morse">
+
+    <!-- Regel 1: D (-..) -->
+    <div class="morse-line">
+        <div class="dash"></div>
+        <div class="dash"></div>
+        <div class="dash"></div>
+
+        <div class="space"></div>
+
+        <div class="dot"></div>
+
+        <div class="space"></div>
+
+        <div class="dot"></div>
+    </div>
+
+    <!-- Regel 2: Q (--.-) -->
+    <div class="morse-line">
+        <div class="dash"></div>
+        <div class="dash"></div>
+        <div class="dash"></div>
+
+        <div class="space"></div>
+
+        <div class="dash"></div>
+        <div class="dash"></div>
+        <div class="dash"></div>
+
+        <div class="space"></div>
+
+        <div class="dot"></div>
+
+        <div class="space"></div>
+
+        <div class="dash"></div>
+        <div class="dash"></div>
+        <div class="dash"></div>
+    </div>
+
+    <!-- Regel 3: I (..) -->
+    <div class="morse-line">
+        <div class="dot"></div>
+
+        <div class="space"></div>
+
+        <div class="dot"></div>
+    </div>
+
+    <!-- Regel 4: G (--.) -->
+    <div class="morse-line">
+        <div class="dash"></div>
+        <div class="dash"></div>
+        <div class="dash"></div>
+
+        <div class="space"></div>
+
+        <div class="dash"></div>
+        <div class="dash"></div>
+        <div class="dash"></div>
+
+        <div class="space"></div>
+
+        <div class="dot"></div>
+    </div>
+
+</div>
+
 
 </body>
 </html>
