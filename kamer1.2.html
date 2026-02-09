@@ -23,31 +23,26 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: #f5f5f5;
             font-family: 'Montserrat', sans-serif;
         }
 
-        /* Stijl voor de knop */
+        /* Stijl voor de vierkante knop */
         .next-button {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: rgba(255, 255, 255, 0.5); /* 50% doorzichtig wit */
-            color: #000;
+            bottom: 20px; /* pas hier aan om omhoog/omlaag te schuiven */
+            right: 20px;  /* pas hier aan om links/rechts te schuiven */
+            width: 60px;  /* breedte van de knop */
+            height: 60px; /* hoogte van de knop, maakt het vierkant */
+            background-color: rgba(255, 255, 255, 0.5); /* 50% doorzichtig */
             border: none;
-            padding: 12px 20px;
-            font-size: 16px;
-            font-weight: 500;
-            border-radius: 8px;
+            border-radius: 8px; /* kleine afgeronde hoeken, optioneel */
             cursor: pointer;
         }
     </style>
 </head>
 <body>
 
-    <button class="next-button" onclick="location.href='kamer1.3.html'">
-        Volgende
-    </button>
+    <button class="next-button" onclick="location.href='kamer1.3.html'"></button>
 
 </body>
 </html>
