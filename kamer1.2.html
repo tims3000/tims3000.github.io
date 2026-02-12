@@ -82,22 +82,39 @@
 
     <a href="kamer1.1.html" class="terug-knop">Terug</a>
 
-    <script>
-        function checkCode() {
-            const juisteCode = "kbuwd"; // stel hier de juiste code in
-            let invoer = prompt("Voer de code in:");
-            
-            if (invoer === null) return; // gebruiker annuleert
-            if (invoer === juisteCode) {
-                // juiste code → volgende pagina
-                 alert("Wachtwoord correct! Je gaat door naar de volgende pagina.");
-                location.href = "kamer1.4.html";
-            } else {
-                // foutmelding
-                alert("Foute code, probeer het opnieuw!");
-            }
+<script>
+    // Controle of wachtwoord al correct was ingevoerd
+    const CodeGoed = () => localStorage.getItem("CodeKamer1") === "true";
+
+    // Als pagina laadt en code was al goed → direct door
+    if (CodeGoed()) {
+        location.href = "kamer1.4.html";
+    }
+
+    function checkCode() {
+        const juisteCode = "kbuwd";
+
+        // Als al correct ingevoerd → direct door
+        if (CodeGoed()) {
+            location.href = "kamer1.4.html";
+            return;
         }
-    </script>
+
+        let invoer = prompt("Voer de code in:");
+        if (invoer === null) return;
+
+        if (invoer.toLowerCase() === juisteCode) {
+            // Sla op dat code goed was
+            localStorage.setItem("CodeKamer1", "true");
+
+            alert("Wachtwoord correct! Je gaat door naar de volgende pagina.");
+            location.href = "kamer1.4.html";
+        } else {
+            alert("Foute code, probeer het opnieuw!");
+        }
+    }
+</script>
+
 
 </body>
 </html>
