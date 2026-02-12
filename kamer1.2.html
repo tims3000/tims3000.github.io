@@ -84,13 +84,13 @@
 
 <script>
     // Controle of code al eerder correct was
-    const CodeGoed = () => localStorage.getItem("CodeKamer1") === "true";
+    const CodeGoed1 = () => localStorage.getItem("CodeKamer1") === "true";
 
     function checkCode() {
         const juisteCode = "kbuwd";
 
         // ✅ Als code al eerder goed was → meteen doorgaan
-        if (CodeGoed()) {
+        if (CodeGoed1()) {
             location.href = "kamer1.4.html";
             return;
         }
