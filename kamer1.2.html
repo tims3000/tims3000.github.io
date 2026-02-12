@@ -84,7 +84,7 @@
 
 <script>
     // Controle of code al eerder correct was
-    const CodeGoed1 = () => localStorage.getItem("CodeKamer1") === "true";
+    const CodeGoed1 = () => localStorage.getItem("CodeKamer2") === "true";
 
     function checkCode() {
         const juisteCode = "kbuwd";
@@ -100,7 +100,7 @@
 
         if (invoer.toLowerCase() === juisteCode) {
             // Opslaan dat code correct is
-            localStorage.setItem("CodeKamer1", "true");
+            localStorage.setItem("CodeKamer2", "true");
 
             alert("Wachtwoord correct! Je gaat door naar de volgende pagina.");
             location.href = "kamer1.4.html";
