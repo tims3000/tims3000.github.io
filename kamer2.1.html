@@ -24,12 +24,65 @@ body {
     color: #f5f5f5;
 }
 
+.top-image {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.top-image img {
+    width: 300px;   /* Pas grootte aan indien nodig */
+    height: auto;
+}
+
+.image-grid {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.image-grid img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.image-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0,0,0,0.6);
+}
+
 </style>
 
 </head>
 
 <body>
 
+
+    <!-- Bovenste afbeelding -->
+    <div class="top-image">
+        <img src="img/64a3ae8af124ca4775d54b4ad8d2626b.jpg" alt="Hoofd afbeelding">
+    </div>
+
+    <!-- Vier klikbare afbeeldingen -->
+    <div class="image-grid">
+        <a href="pagina1.html">
+            <img src="img/idee1.jpg" alt="Idee 1">
+        </a>
+        <a href="pagina2.html">
+            <img src="img/idee2.jpg" alt="Idee 2">
+        </a>
+        <a href="pagina3.html">
+            <img src="img/idee3.jpg" alt="Idee 3">
+        </a>
+        <a href="pagina4.html">
+            <img src="img/idee4.jpg" alt="Idee 4">
+        </a>
+    </div>
 
 
 </body>
