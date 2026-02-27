@@ -24,116 +24,13 @@ body {
     color: #f5f5f5;
 }
 
-/* ID-kaarten container */
-.container {
-    display: flex;
-    justify-content: space-between;
-    width: 1200px; /* breed genoeg voor links/rechts */
-    gap: 50px;
-    margin-bottom: 60px;
-}
-
-.card-wrapper {
-    position: relative;
-    width: 550px; /* grote pasjes */
-}
-
-.id-background {
-    width: 100%;
-    display: block;
-}
-
-/* Drop-zone boven foto gedeelte van ID-kaart */
-.drop-zone {
-    position: absolute;
-
-    /* pas aan zodat het foto-vak exact klopt */
-    top: 110px;
-    left: 80px;
-    width: 140px;
-    height: 180px;
-
-    border: 2px dashed rgba(255,255,255,0.6);
-}
-
-/* Sleepbare foto's */
-.photos {
-    display: flex;
-    justify-content: center; /* midden onder ID-kaarten */
-    gap: 50px;
-    margin-top: 40px;
-}
-
-.photos img {
-    width: 150px;
-    cursor: grab;
-}
 </style>
 
 </head>
 
 <body>
 
-<div class="container">
 
-    <!-- Johannes ID links -->
-    <div class="card-wrapper">
-        <img src="img/JohannesBakker.png" class="id-background">
-
-        <div class="drop-zone"
-             data-name="JohannesBakker"
-             ondrop="drop(event)"
-             ondragover="allowDrop(event)">
-        </div>
-    </div>
-
-    <!-- Elinde ID rechts -->
-    <div class="card-wrapper">
-        <img src="img/ElindeGraaf.png" class="id-background">
-
-        <div class="drop-zone"
-             data-name="ElindeGraaf"
-             ondrop="drop(event)"
-             ondragover="allowDrop(event)">
-        </div>
-    </div>
-
-</div>
-
-<!-- Sleepbare foto's onder de ID-kaarten -->
-<div class="photos">
-    <img src="ElindeGraaf.webp" id="ElindeGraaf" draggable="true" ondragstart="drag(event)">
-    <img src="JohannesBakker.avif" id="JohannesBakker" draggable="true" ondragstart="drag(event)">
-</div>
-
-<script>
-function allowDrop(ev) {
-    ev.preventDefault();
-}
-
-function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-}
-
-function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    var draggedElement = document.getElementById(data);
-
-    var correctName = ev.target.getAttribute("data-name");
-
-    if (data === correctName) {
-        ev.target.innerHTML = "";
-        ev.target.appendChild(draggedElement);
-
-        draggedElement.style.width = "100%";
-        draggedElement.style.height = "100%";
-        draggedElement.style.objectFit = "cover";
-    } else {
-        alert("❌ Verkeerde ID! Probeer opnieuw.");
-    }
-}
-</script>
 
 </body>
 
