@@ -80,4 +80,21 @@
      <a href="kamer2.4.2.html" class="terug-knop">Terug</a>
 
 </body>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // Reset eerst het oude nummer
+    localStorage.removeItem("toegangCode");
+
+    // Maak een nieuw willekeurig nummer (bijvoorbeeld 6 cijfers)
+    let nieuwNummer = 2;
+
+    // Sla het nummer op in localStorage
+    localStorage.setItem("toegangCode", nieuwNummer);
+
+    console.log("Nieuw nummer opgeslagen:", nieuwNummer);
+});
+</script>
+
 </html>
