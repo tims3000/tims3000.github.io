@@ -39,11 +39,44 @@
         .terug-knop:hover {
             background-color: rgba(0, 0, 0, 0.8);
         }
+
+.scanner {
+    width: 200px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.scanner:hover {
+    transform: scale(1.05);
+}
     </style>
 </head>
 <body>
 
     <a href="kamer2.1.html" class="terug-knop">Terug</a>
 
+<img src="img/scanner.png" alt="Scanner" class="scanner" id="scanner">
+
 </body>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+    document.getElementById("scanner").addEventListener("click", function() {
+
+        let opgeslagenNummer = localStorage.getItem("toegangCode");
+
+        if(opgeslagenNummer === "4") {
+            // Goed pasje → volgende pagina
+            window.location.href = "kamer2.7.html";
+        } else {
+            // Fout pasje
+            alert("❌ Dit pasje werkt niet! Het moet wel een pasje zijn van iemand die daar werkt.");
+        }
+
+    });
+
+});
+</script>
+
 </html>
