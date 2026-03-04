@@ -64,7 +64,7 @@
     const schakelaar = document.getElementById("schakelaar");
 
     // 🔹 Controleer bij laden van pagina wat de status is
-    const status = localStorage.getItem("schakelaarStatus1");
+    const status = localStorage.getItem("schakelaarStatus2");
 
     if (status === "off") {
         schakelaar.src = "img/off.png";
@@ -79,7 +79,7 @@
         schakelaar.src = "img/off.png";
 
         // Sla op in localStorage
-        localStorage.setItem("schakelaarStatus1", "off");
+        localStorage.setItem("schakelaarStatus2", "off");
 
         // Alert
         alert("Bekend apparaat dus de firewall laat de actie toe...");
