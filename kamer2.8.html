@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escape Room</title>
 
-    <!-- Google Font voor mysterious vibe -->
     <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
     <style>
@@ -16,10 +15,7 @@
 
         body {
             background: url('img/juwelierlaptop.png') no-repeat center center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            position: relative;
             color: #f5f5f5;
         }
 
@@ -40,11 +36,46 @@
             background-color: rgba(0, 0, 0, 0.8);
         }
 
+        /* ============================= */
+        /* HIER KUN JE POSITIE & GROOTTE AANPASSEN */
+        .schakelaar {
+            position: absolute;
+
+            top: 50%;       /* verticale positie */
+            left: 50%;      /* horizontale positie */
+            transform: translate(-50%, -50%); /* perfect midden */
+
+            width: 150px;   /* breedte aanpassen */
+            height: auto;   /* hoogte automatisch */
+            cursor: pointer;
+        }
+        /* ============================= */
+
     </style>
 </head>
 <body>
 
     <a href="kamer2.7.html" class="terug-knop">Terug</a>
+
+    <!-- Schakelaar -->
+    <img src="img/on.png" id="schakelaar" class="schakelaar" alt="Schakelaar">
+
+    <script>
+        const schakelaar = document.getElementById("schakelaar");
+
+        schakelaar.addEventListener("click", function() {
+            
+            // Zet naar OFF
+            schakelaar.src = "img/off.png";
+
+            alert("Je kunt dit systeem niet uitschakelen...");
+
+            // Na 1.5 seconde weer terug naar ON
+            setTimeout(function() {
+                schakelaar.src = "img/on.png";
+            }, 1500); // 1500ms = 1.5 seconde
+        });
+    </script>
 
 </body>
 </html>
