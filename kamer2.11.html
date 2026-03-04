@@ -40,11 +40,46 @@
             background-color: rgba(0, 0, 0, 0.8);
         }
 
+                /* Lange knop in het midden */
+        .code-button {
+            position: fixed;
+            bottom: 195px;
+            left: 50%;
+            transform: translate(-50%, -50%); /* precies centreren */
+            width: 280px; /* lengte knop */
+            height: 40px; /* hoogte knop */
+            background-color: rgba(255, 255, 255, 0.5); /* 50% doorzichtig */
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
     </style>
 </head>
 <body>
+    <!-- Lange code knop midden -->
+    <button class="code-button" onclick="checkCode()"></button>
 
     <a href="kamer2.9.html" class="terug-knop">Terug</a>
 
 </body>
+
+    <script>
+        function checkCode() {
+            const juisteCode = "2nf9w"; // stel hier de juiste code in
+            let invoer = prompt("Voer de code in:");
+            
+            if (invoer === null) return; // gebruiker annuleert
+            if (invoer === juisteCode) {
+                // juiste code → volgende pagina
+                 alert("Wachtwoord correct! Je gaat door naar de volgende pagina.");
+                location.href = "kamer1.4.html";
+            } else {
+                // foutmelding
+                alert("Foute code, probeer het opnieuw!");
+            }
+        }
+    </script>
+
 </html>
