@@ -75,6 +75,20 @@
             border-radius: 8px;
             cursor: pointer;
         }
+
+.diamant {
+    position: absolute;
+
+    top: 55%;     /* verticale positie aanpassen */
+    left: 45%;    /* horizontale positie aanpassen */
+    transform: translate(-50%, -50%);
+
+    width: 120px; /* grootte aanpassen */
+    height: auto;
+
+    cursor: pointer;
+}
+
     </style>
 </head>
 <body>
@@ -87,5 +101,26 @@
     <span>Hacking Laptop</span>
 </a>
 
+<img src="img/diamant.png" id="diamant" class="diamant" alt="Diamant">
+
 </body>
+
+<script>
+    const diamant = document.getElementById("diamant");
+
+    diamant.addEventListener("click", function() {
+
+        const status = localStorage.getItem("schakelaarStatus2");
+
+        if (status === "off") {
+            // Firewall staat uit → je mag verder
+            window.location.href = "kamer2.9.html";
+        } else {
+            // Firewall staat nog aan → alarm!
+            alert("⚠ PAS OP! Nog één stap verder en het alarm was afgegaan!");
+        }
+
+    });
+</script>
+
 </html>
