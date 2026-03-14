@@ -106,27 +106,29 @@
 </a>
 
 <button class="code-button" onclick="checkCode()">
-    <img src="img/slot.avif" alt="Voer code in">
+    <img src="img/slot.avif" alt="Open slot">
 </button>
 
 </body>
 
 
     <script>
-        function checkCode() {
-            const juisteCode = "0529"; // stel hier de juiste code in
-            let invoer = prompt("Voer de code in:");
-            
-            if (invoer === null) return; // gebruiker annuleert
-            if (invoer === juisteCode) {
-                // juiste code → volgende pagina
-                 alert("De code is goed! Je gaat door naar de volgende pagina.");
-                location.href = "kamer3.6.html";
-            } else {
-                // foutmelding
-                alert("Foute code, probeer het opnieuw!");
-            }
-        }
+function checkCode() {
+
+    const sleutel = localStorage.getItem("heeftSleutel");
+
+    if (sleutel === "ja") {
+
+        alert("Je gebruikt de sleutel om het slot te openen!");
+        location.href = "kamer3.6.html";
+
+    } else {
+
+        alert("Je hebt de sleutel niet! Zoek eerst verder.");
+
+    }
+
+}
     </script>
 
 </html>
