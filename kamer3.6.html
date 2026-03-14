@@ -15,7 +15,7 @@ html, body {
 }
 
 body {
-    background: url('img/juwelierlaptop2.png') no-repeat center center/cover;
+    background: url('img/') no-repeat center center/cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,16 +38,16 @@ body {
 
 .juwelen-container{
     display: grid;
-    grid-template-columns: repeat(5, 100px);
-    grid-template-rows: repeat(2, 100px);
+    grid-template-columns: repeat(5, 120px);
+    grid-template-rows: repeat(2, 120px);
     gap: 20px;
     justify-content: center;
-    margin-bottom: 150px; /* ruimte voor slots */
+    margin-bottom: 180px; /* ruimte voor slots */
 }
 
 .juweel{
-    width: 90px;
-    height: 90px;
+    width: 110px;
+    height: 110px;
     cursor: pointer;
     transition: transform 0.2s;
 }
@@ -66,8 +66,8 @@ body {
 }
 
 .slot{
-    width:100px;
-    height:100px;
+    width:120px;
+    height:120px;
     border:2px solid rgba(255,255,255,0.6);
     border-radius:10px;
     display:flex;
@@ -77,8 +77,12 @@ body {
 }
 
 .slot img{
-    width:90px;
+    width:110px;
     cursor:pointer;
+}
+
+.empty-slot {
+    opacity: 0; /* laat lege plekken zichtbaar maar leeg */
 }
 
 </style>
@@ -100,6 +104,7 @@ body {
 const juwelenContainer = document.getElementById("juwelen");
 const slots = document.querySelectorAll(".slot");
 
+// gekozen[0-2] = juwel IDs in slots
 let gekozen = JSON.parse(localStorage.getItem("juwelenSlots")) || [null,null,null];
 
 function save(){
@@ -111,19 +116,23 @@ function eersteVrijeSlot(){
 }
 
 function maakJuwelen(){
+    // Clear container
+    juwelenContainer.innerHTML = "";
 
     for(let i=1;i<=10;i++){
-
-        if(gekozen.includes(i)) continue;
 
         const img=document.createElement("img");
         img.src=`img/juweel${i}.png`;
         img.className="juweel";
-        img.dataset.id=i;
+
+        // Check if juweel in slot
+        if(gekozen.includes(i)){
+            img.classList.add("empty-slot"); // nog steeds vak zichtbaar maar onzichtbaar
+        }
 
         img.onclick=()=>{
             let slot=eersteVrijeSlot();
-            if(slot===-1) return;
+            if(slot===-1 || gekozen.includes(i)) return;
 
             gekozen[slot]=i;
             save();
@@ -159,11 +168,8 @@ function renderSlots(){
 }
 
 function render(){
-
-    juwelenContainer.innerHTML="";
     maakJuwelen();
     renderSlots();
-
 }
 
 render();
