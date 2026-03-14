@@ -15,7 +15,7 @@ html, body {
 }
 
 body {
-    background: url('img/') no-repeat center center/cover;
+    background: url('img/roodjuweel.png') no-repeat center center/cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -85,11 +85,30 @@ body {
     opacity: 0; /* laat lege plekken zichtbaar maar leeg */
 }
 
+        .verder-knop {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #f5f5f5;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .verder-knop:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
 </style>
 </head>
 <body>
 
 <a href="kamer3.1.html" class="terug-knop">Terug</a>
+
+<a href="kamer3.7.html" class="verder-knop">Verder</a>
 
 <div class="juwelen-container" id="juwelen"></div>
 
