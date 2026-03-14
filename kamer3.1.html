@@ -87,7 +87,26 @@
     <img src="img/puzzel.png" class="puzzel">
 </a>
 
+ <button class="code-button" src="img/codeinvoeren.png" onclick="checkCode()"></button>
+
 </body>
 
+
+    <script>
+        function checkCode() {
+            const juisteCode = "0529"; // stel hier de juiste code in
+            let invoer = prompt("Voer de code in:");
+            
+            if (invoer === null) return; // gebruiker annuleert
+            if (invoer === juisteCode) {
+                // juiste code → volgende pagina
+                 alert("De code is goed! Je gaat door naar de volgende pagina.");
+                location.href = "kamer3.5.html";
+            } else {
+                // foutmelding
+                alert("Foute code, probeer het opnieuw!");
+            }
+        }
+    </script>
 
 </html>
