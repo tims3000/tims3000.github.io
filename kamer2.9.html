@@ -64,6 +64,20 @@
             border-radius: 8px;
             cursor: pointer;
         }
+
+        #sleutel {
+    position: absolute;
+
+    /* positie aanpassen */
+    bottom: 75px;
+    left: 300px;
+
+    /* grootte aanpassen */
+    width: 80px;
+    height: auto;
+
+    cursor: pointer;
+}
     </style>
 </head>
 <body>
@@ -73,5 +87,21 @@
 
     <a href="kamer2.7.html" class="terug-knop">Terug</a>
 
+    <img src="img/key.webp" id="sleutel">
+
 </body>
+
+<script>
+document.getElementById("sleutel").onclick = function() {
+
+    if(localStorage.getItem("heeftSleutel") === "ja"){
+        alert("Je hebt deze sleutel al.");
+    } else {
+        localStorage.setItem("heeftSleutel", "ja");
+        alert("Je hebt een sleutel gevonden!");
+    }
+
+}
+</script>
+
 </html>
