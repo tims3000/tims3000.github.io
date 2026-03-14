@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Room</title>
+
+    <!-- Google Font voor mysterious vibe -->
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            background: url('img/binneninjuwelier1.png') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #f5f5f5;
+        }
+
+        .terug-knop {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #f5f5f5;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .terug-knop:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+
+.laptop {
+    position: absolute;
+    width: 150px;
+    bottom: 25px;
+    right: 350px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    text-decoration: none;
+}
+
+.laptop span {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.laptop img {
+    width: 100%;
+    height: auto;
+}
+
+.puzzel {
+    position: absolute;
+    bottom: 10px;     /* verticale positie aanpassen */
+    right: 10px;    /* horizontale positie aanpassen */
+    transform: translate(-50%, -50%);
+    width: 50px; /* grootte aanpassen */
+    height: auto;
+    cursor: pointer;
+}
+
+.code-button {
+    position: absolute;
+    top: 45%;              /* iets boven het midden */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    background: none;      /* standaard button stijl weg */
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.code-button img {
+    width: 120px;          /* grootte van de knop */
+    height: auto;
+    display: block;
+}
+    </style>
+</head>
+<body>
+
+    <a href="kamer3.1.html" class="terug-knop">Terug</a>
+
+<a href="kamer3.3.html" class="laptop">
+    <img src="img/laptop.png" alt="folder">
+    <span>Hacking Laptop</span>
+</a>
+
+<a href="kamer3.2.html">
+    <img src="img/puzzel.png" class="puzzel">
+</a>
+
+<button class="code-button" onclick="checkCode()">
+    <img src="img/slot.avif" alt="Voer code in">
+</button>
+
+</body>
+
+
+    <script>
+        function checkCode() {
+            const juisteCode = "0529"; // stel hier de juiste code in
+            let invoer = prompt("Voer de code in:");
+            
+            if (invoer === null) return; // gebruiker annuleert
+            if (invoer === juisteCode) {
+                // juiste code → volgende pagina
+                 alert("De code is goed! Je gaat door naar de volgende pagina.");
+                location.href = "kamer3.6.html";
+            } else {
+                // foutmelding
+                alert("Foute code, probeer het opnieuw!");
+            }
+        }
+    </script>
+
+</html>
