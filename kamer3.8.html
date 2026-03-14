@@ -1,52 +1,121 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escape Room</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escape Room</title>
 
-    <!-- Google Font voor mysterious vibe -->
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
+<style>
 
-        body {
-            background: url('img/buitenlaptop.png') no-repeat center center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: #f5f5f5;
-        }
+html, body {
+    height: 100%;
+    margin: 0;
+}
 
-        .terug-knop {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            padding: 10px 20px;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: #f5f5f5;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
+body {
+    background: url('img/buitenlaptop.png') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #f5f5f5;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
 
-        .terug-knop:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
+.terug-knop {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: rgba(0,0,0,0.6);
+    color: #f5f5f5;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
 
-    </style>
+.terug-knop:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.vraag-box {
+    background: rgba(0,0,0,0.65);
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 500px;
+}
+
+.vraag {
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+.optie {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: #222;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.optie:hover {
+    background: #444;
+}
+
+#melding {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+</style>
 </head>
+
 <body>
 
-    <a href="kamer3.7.html" class="terug-knop">Terug</a>
+<a href="kamer3.7.html" class="terug-knop">Terug</a>
+
+<div class="vraag-box">
+
+<div class="vraag">
+Wat kan ervoor zorgen dat een systeem crasht doordat het wordt overspoeld met verkeer?
+</div>
+
+<button class="optie" onclick="checkAntwoord('fout')">Een computervirus</button>
+<button class="optie" onclick="checkAntwoord('goed')">Een DDoS-aanval</button>
+<button class="optie" onclick="checkAntwoord('fout')">Phishing</button>
+
+<div id="melding"></div>
+
+</div>
+
+<script>
+
+function checkAntwoord(antwoord){
+
+    let melding = document.getElementById("melding");
+
+    if(antwoord === "goed"){
+        melding.style.color = "lightgreen";
+        melding.textContent = "Correct! Een DDoS-aanval overspoelt een systeem met verkeer waardoor het kan crashen.";
+    } 
+    else{
+        melding.style.color = "red";
+        melding.textContent = "Fout antwoord! Probeer het opnieuw.";
+    }
+
+}
+
+</script>
 
 </body>
-
-
 </html>
