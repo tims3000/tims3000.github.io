@@ -15,7 +15,7 @@
         }
 
         body {
-            background: url('img/juwelierlaptop1.png') no-repeat center center/cover;
+            background: url('img/juwelierlaptop2.png') no-repeat center center/cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -39,46 +39,13 @@
         .terug-knop:hover {
             background-color: rgba(0, 0, 0, 0.8);
         }
-
-                /* Lange knop in het midden */
-        .code-button {
-            position: fixed;
-            bottom: 230px;
-            left: 50%;
-            transform: translate(-50%, -50%); /* precies centreren */
-            width: 340px; /* lengte knop */
-            height: 85px; /* hoogte knop */
-            background-color: rgba(255, 255, 255, 0.0); /* 50% doorzichtig */
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 16px;
-        }
     </style>
 </head>
 <body>
 
-    <a href="kamer3.3.html" class="terug-knop">Terug</a>
-
-    <button class="code-button" onclick="checkCode()"></button>
+    <a href="kamer3.4.html" class="terug-knop">Terug</a>
 
 </body>
 
-    <script>
-        function checkCode() {
-            const juisteCode = "' or 1=1--"; // stel hier de juiste code in
-            let invoer = prompt("Voer de code in:");
-            
-            if (invoer === null) return; // gebruiker annuleert
-            if (invoer === juisteCode) {
-                // juiste code → volgende pagina
-                 alert("De SQL injection werkt! Je gaat door naar de volgende pagina.");
-                location.href = "kamer3.5.html";
-            } else {
-                // foutmelding
-                alert("Foute code, probeer het opnieuw!");
-            }
-        }
-    </script>
 
 </html>
