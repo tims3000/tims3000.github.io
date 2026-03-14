@@ -75,11 +75,20 @@
 
 .code-button {
     position: absolute;
-    bottom: 300px;     /* afstand van boven */
-    right: 50%;    /* afstand van links */
-    width: 100px;   /* grootte van de scanner */
+    top: 45%;              /* iets boven het midden */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    background: none;      /* standaard button stijl weg */
+    border: none;
+    padding: 0;
     cursor: pointer;
-    transition: transform 0.2s;
+}
+
+.code-button img {
+    width: 120px;          /* grootte van de knop */
+    height: auto;
+    display: block;
 }
     </style>
 </head>
