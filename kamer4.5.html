@@ -14,7 +14,7 @@ html, body {
 }
 
 body {
-    background-color: #111;
+    background: url('img/spoorlaptop.png') no-repeat center center/cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,6 +33,11 @@ body {
     color: #f5f5f5;
     text-decoration: none;
     border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.terug-knop:hover {
+    background-color: rgba(0,0,0,0.8);
 }
 
 .knop {
@@ -63,6 +68,7 @@ input {
 #slagboom {
     font-size: 50px;
     margin-top: 40px;
+    text-shadow: 1px 1px 5px #000;
 }
 </style>
 </head>
@@ -97,11 +103,11 @@ function checkWachtwoord(){
 
     if(ww === "Sp@rkie"){
         slagboom.textContent = "🔴 Dicht";
-        melding.textContent = "Slagboom gaat dicht! De politie kan niet verder lekker gedaan";
+        melding.textContent = "Slagboom gaat dicht! Over 3 seconden ga je door...";
         setTimeout(function(){
-            window.location.href = "kamer4.6.html";
+            window.location.href = "volgendepagina.html";
         },3000);
-    }else{
+    } else {
         melding.textContent = "❌ Fout wachtwoord!";
     }
 }
