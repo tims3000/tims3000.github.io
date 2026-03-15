@@ -39,12 +39,61 @@ body {
     background-color: rgba(0,0,0,0.8);
 }
 
+.quiz-box{
+    background: rgba(0,0,0,0.65);
+    padding:40px;
+    border-radius:10px;
+    text-align:left;
+}
+
+button{
+    margin-top:20px;
+    padding:10px 20px;
+    border:none;
+    border-radius:5px;
+    background:#444;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#666;
+}
+
 </style>
 </head>
 
 <body>
 
 <a href="kamer4.8.html" class="terug-knop">Terug</a>
+
+<div class="quiz-box">
+<h2>Wat heb je nodig om veilig op het darkweb te browsen?</h2>
+
+<label><input type="checkbox" id="tor"> Tor Browser</label><br>
+<label><input type="checkbox" id="vpn"> Betrouwbare VPN</label><br>
+<label><input type="checkbox"> Google Chrome</label><br>
+<label><input type="checkbox"> Je normale internetprovider</label><br>
+<label><input type="checkbox"> Alleen incognito modus</label><br>
+
+<button onclick="checkAntwoord()">Controleer antwoord</button>
+</div>
+
+<script>
+function checkAntwoord(){
+
+let tor = document.getElementById("tor").checked;
+let vpn = document.getElementById("vpn").checked;
+
+if(tor && vpn){
+    window.location.href = "kamer4.10.html";
+}
+else{
+    alert("Niet helemaal goed... Probeer opnieuw.");
+}
+
+}
+</script>
 
 </body>
 </html>
