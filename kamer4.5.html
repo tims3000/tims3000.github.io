@@ -103,10 +103,10 @@ function checkWachtwoord(){
 
     if(ww === "Sp@rkie"){
         slagboom.textContent = "🔴 Dicht";
-        melding.textContent = "Slagboom gaat dicht! Over 3 seconden ga je door...";
+        melding.textContent = "Slagboom gaat dicht! De politie kan niet verder, lekker gedaan.";
         setTimeout(function(){
             window.location.href = "volgendepagina.html";
-        },3000);
+        },2000);
     } else {
         melding.textContent = "❌ Fout wachtwoord!";
     }
