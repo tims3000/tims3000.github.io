@@ -69,13 +69,24 @@
     <h1>Escape Room</h1>
     <p>breek in de juwelier</p>
 
-    <a href="kamer1.1.html">
-        <button class="start-button">Start</button>
-    </a>
+<a href="kamer1.1.html">
+    <button class="start-button" onclick="startTimer()">Start</button>
+</a>
 
     <div class="credits">
         Gemaakt door: <br>
         Francesco Mandas • Mike Boom • Thijs Kanbier • Tim Schiltmans
     </div>
 </body>
+
+<script>
+function startTimer() {
+    // Starttijd opslaan in milliseconds
+    localStorage.setItem('startTime', Date.now());
+    
+    // Ook eventuele oude data resetten
+    localStorage.removeItem('juwelenSlots');
+}
+</script>
+
 </html>
