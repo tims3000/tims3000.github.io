@@ -39,11 +39,54 @@
         .terug-knop:hover {
             background-color: rgba(0, 0, 0, 0.8);
         }
+
+        #totaal {
+    text-align: center;
+    font-family: 'Creepster', cursive;
+    font-size: 2rem;
+    margin-top: 50px;
+}
     </style>
 </head>
 <body>
 
- <a href="index.html" class="terug-knop">Opnieuw spelen</a>
+<a href="index.html" class="terug-knop" onclick="localStorage.removeItem('juwelenSlots')">Opnieuw spelen</a>
+
+<div id="totaal"></div>
 
 </body>
+
+<script>
+    // Waarden per juweel
+    const juweelWaarden = {
+        1: 100,
+        2: 150,
+        3: 200,
+        4: 250,
+        5: 300,
+        6: 350,
+        7: 400,
+        8: 450,
+        9: 500,
+        10: 550
+    };
+
+    // Gekozen juwelen ophalen
+    const gekozen = JSON.parse(localStorage.getItem("juwelenSlots")) || [];
+
+    // Totaal berekenen
+    let totaal = 0;
+    gekozen.forEach(juweelId => {
+        if(juweelId !== null){
+            totaal += juweelWaarden[juweelId];
+        }
+    });
+
+    // Toon het totaal
+    document.getElementById("totaal").innerHTML = `
+        <h1>Gefeliciteerd!</h1>
+        <p>Je hebt een totaal van €${totaal} buitgemaakt!</p>
+    `;
+</script>
+
 </html>
