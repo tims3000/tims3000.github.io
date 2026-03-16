@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"> <!-- Zorgt voor correcte weergave van speciale tekens -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Schalen op mobiel -->
     <title>Escape Room</title>
 
-    <!-- Google Font voor mysterious vibe -->
+    <!-- Google Fonts voor sfeer -->
     <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
     <style>
@@ -14,6 +14,7 @@
             margin: 0;
         }
 
+        /* Body styling: achtergrond, centreren content, tekstkleur en schaduw voor leesbaarheid */
         body {
             background: url('img/garagedicht.jpg') no-repeat center center/cover;
             display: flex;
@@ -26,49 +27,54 @@
             text-shadow: 0 0 10px rgba(0,0,0,0.9);
         }
 
+        /* Slot icoon styling */
         .lock-icon {
-    position: absolute;
-    bottom: 5px;          /* afstand van onderkant */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;           /* pas dit aan als je 'm iets groter/kleiner wilt */
-    opacity: 0.9;          /* optioneel: iets mysterieus */
-}
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px; /* grootte slot icoon */
+            opacity: 0.9;
+        }
 
-.center-box {
-    width: 80px;          /* zelfde grootte als de lock */
-    position: absolute;
-    top: 50%;
-    left: 95%;
-    transform: translate(-50%, -50%);
-    opacity: 0.95;        /* subtiel effect */
-}
+        /* Centrale box styling */
+        .center-box {
+            width: 80px;
+            position: absolute;
+            top: 50%;
+            left: 95%;
+            transform: translate(-50%, -50%);
+            opacity: 0.95;
+        }
 
-.letter-stack {
-    position: absolute;
-    top: 62%;           /* midden van scherm */
-    left: 2.5%;
-    transform: translate(-50%, -130%); /* boven de box positioneren */
-    display: flex;
-    flex-direction: column;
-    gap: 2px;           /* afstand tussen letters */
-}
+        /* Stapel letters boven de box */
+        .letter-stack {
+            position: absolute;
+            top: 62%;
+            left: 2.5%;
+            transform: translate(-50%, -130%); /* Positioneer boven box */
+            display: flex;
+            flex-direction: column;
+            gap: 2px; /* Afstand tussen letters */
+        }
 
-.letter-stack img {
-    width: 25px;       /* helft van de originele grootte */
-    opacity: 0.95;
-}
+        .letter-stack img {
+            width: 25px;
+            opacity: 0.95;
+        }
 
-#poster {
-    position: absolute;
-    top: 50%;
-    left: 3.5%;
-    transform: translate(-50%, -50%);
-    width: 120px;       /* pas aan naar wens */
-    cursor: pointer;    /* geeft aan dat je erop kan klikken */
-    z-index: 10;        /* boven de letters */
-}
+        /* Poster die letters bedekt en klikbaar is */
+        #poster {
+            position: absolute;
+            top: 50%;
+            left: 3.5%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            cursor: pointer; /* geeft aan dat erop geklikt kan worden */
+            z-index: 10; /* boven de letters */
+        }
 
+        /* Terug-knop styling */
         .terug-knop {
             position: absolute;
             top: 20px;
@@ -86,115 +92,119 @@
             background-color: rgba(0, 0, 0, 0.8);
         }
 
+        /* Uitleg-box styling */
         .uitleg-box {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0,0,0,0.6); /* subtiel donker */
-    padding: 3px;           /* nog kleiner in hoogte, breder horizontaal */
-    border-radius: 6px;          /* kleine afgeronde hoeken */
-    max-width: 1200px;            /* breder blok */
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.75rem;          /* klein lettertype */
-    line-height: 1.1;            /* compacte regels */
-    color: #f5f5f5;
-    z-index: 1000;
-    word-wrap: break-word;        /* tekst gaat netjes over meerdere regels */
-}
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.6);
+            padding: 3px;
+            border-radius: 6px;
+            max-width: 1200px;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            line-height: 1.1;
+            color: #f5f5f5;
+            z-index: 1000;
+            word-wrap: break-word;
+        }
 
-#type-text::after {
-    content: "|";
-    margin-left: 2px;
-    animation: knipper 1s infinite;
-}
+        /* Knipperende cursor voor type-effect */
+        #type-text::after {
+            content: "|";
+            margin-left: 2px;
+            animation: knipper 1s infinite;
+        }
 
-@keyframes knipper {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
-}
+        @keyframes knipper {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Poster die de letters bedekt -->
-<img src="img/poster.jpeg" alt="Poster" id="poster">
+    <!-- Poster over de letters -->
+    <img src="img/poster.jpeg" alt="Poster" id="poster">
 
+    <!-- Stapel letters die samen code vormen -->
+    <div class="letter-stack">
+        <img src="img/E.png" alt="E">
+        <img src="img/R.png" alt="R">
+        <img src="img/Y.png" alt="Y">
+        <img src="img/L.png" alt="L">
+        <img src="img/K.png" alt="K">
+    </div>
 
-<div class="letter-stack">
-    <img src="img/E.png" alt="E">
-    <img src="img/R.png" alt="R">
-    <img src="img/Y.png" alt="Y">
-    <img src="img/L.png" alt="L">
-    <img src="img/K.png" alt="K">
-</div>
+    <!-- Box en lock die interactief zijn -->
+    <img src="img/box.webp" alt="Box" class="center-box" id="box">
+    <img src="img/lock.png" alt="Lock" class="lock-icon" id="lock">
 
-<img src="img/box.webp" alt="Box" class="center-box" id="box">
-<img src="img/lock.png" alt="Lock" class="lock-icon" id="lock">,
-
+    <!-- Terug-knop naar startpagina -->
     <a href="index.html" class="terug-knop">Terug</a>
 
+    <!-- Uitleg-box bovenaan -->
     <div class="uitleg-box">
-    <p id="type-text"></p>
-</div>
+        <p id="type-text"></p>
+    </div>
 
 <script>
-    // Check of speler al een sleutel heeft
+    // Functie die checkt of speler de sleutel al heeft (localStorage gebruiken)
     const Key1 = () => localStorage.getItem("Key1") === "true";
 
-        // Poster click
+    // Poster click event: verdwijnt bij klikken
     const poster = document.getElementById("poster");
     poster.addEventListener("click", () => {
-        poster.style.display = "none"; // poster verdwijnt
+        poster.style.display = "none"; // Poster weg
     });
 
-    // BOX CLICK
+    // Box click event
     document.getElementById("box").addEventListener("click", () => {
-        if (Key1()) {
+        if (Key1()) { // Check of sleutel al is gevonden
             alert("De box is al leeg. Je hebt de sleutel al 🔑");
             return;
         }
 
         const code = prompt("Voer de code in om de box te openen en de sleutel te krijgen:");
-
         if (!code) return;
 
-        if (code.toLowerCase() === "erylk") {
-            localStorage.setItem("Key1", "true");
+        if (code.toLowerCase() === "erylk") { // Code check
+            localStorage.setItem("Key1", "true"); // Sla sleutel op
             alert("✔️ Juist! Je hebt een sleutel gevonden 🔑");
         } else {
             alert("❌ Verkeerde code. De box blijft dicht.");
         }
     });
 
-    // LOCK CLICK
+    // Lock click event: check sleutel voor volgende kamer
     document.getElementById("lock").addEventListener("click", () => {
         if (!Key1()) {
             alert("🔒 De deur zit op slot. Je hebt een sleutel nodig.");
         } else {
-            window.location.href = "kamer1.2.html"; // volgende pagina
+            window.location.href = "kamer1.2.html"; // Naar volgende pagina
         }
     });
 
+    // Type-effect voor uitleg-box (zelfde principe als eerste pagina)
     const uitlegTekst = "Je hebt de garage van een medewerker weten te vinden. Je vermoedt dat er spullen in liggen die kunnen helpen bij het overvallen van de juwelier. Nu nog zien hoe je hem open krijgt."; 
-const uitlegElement = document.getElementById("type-text");
-let uitlegIndex = 0;
+    const uitlegElement = document.getElementById("type-text");
+    let uitlegIndex = 0;
 
-function typeUitleg() {
-    if (!uitlegElement) return;
+    function typeUitleg() {
+        if (!uitlegElement) return;
 
-    if (uitlegIndex < uitlegTekst.length) {
-        uitlegElement.innerHTML += uitlegTekst.charAt(uitlegIndex);
-        uitlegIndex++;
-        setTimeout(typeUitleg, 30); // snelheid typen
+        if (uitlegIndex < uitlegTekst.length) {
+            uitlegElement.innerHTML += uitlegTekst.charAt(uitlegIndex);
+            uitlegIndex++;
+            setTimeout(typeUitleg, 30); // Snelheid typen
+        }
     }
-}
 
-typeUitleg();
+    typeUitleg();
 </script>
-
 
 </body>
 </html>
