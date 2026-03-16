@@ -64,32 +64,36 @@
             letter-spacing: 1px;
         }
 
-        .uitleg-box{
-    position:absolute;
-    top:20px;
-    left:50%;
-    transform:translateX(-50%);
-    background:rgba(0,0,0,0.75);
-    padding:12px 20px;
-    border-radius:10px;
-    max-width:600px;
-    text-align:center;
-    font-family:'Montserrat', sans-serif;
-    font-size:1rem;
-    line-height:1.4;
+.uitleg-box {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.6); /* subtiel donker */
+    padding: 6px 12px; /* kleiner */
+    border-radius: 6px; /* kleine afgeronde hoeken */
+    max-width: 400px; /* smaller blok */
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem; /* kleiner lettertype */
+    line-height: 1.2; /* compacte regels */
+    color: #f5f5f5;
+    z-index: 1000;
 }
 
-#type-text::after{
-    content:"|";
-    margin-left:3px;
-    animation:knipper 1s infinite;
+#type-text::after {
+    content: "|";
+    margin-left: 2px;
+    animation: knipper 1s infinite;
 }
 
-@keyframes knipper{
-    0%{opacity:1;}
-    50%{opacity:0;}
-    100%{opacity:1;}
+@keyframes knipper {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
 }
+
+
     </style>
 </head>
 <body>
@@ -119,19 +123,17 @@ function startTimer() {
     localStorage.removeItem('juwelenSlots');
 }
 
-const uitlegTekst = "Welkom bij onze escaperoom! Het doel is om zo snel mogelijk de juwelen uit de juwelier te stelen en hiermee zoveel mogelijk geld te verdienen.";
-
+const uitlegTekst = "Welkom bij onze escaperoom! Het doel is om zo snel mogelijk de juwelen uit de juwelier te stelen en hiermee zoveel mogelijk geld te verdienen."; // pas hier je tekst aan
 const uitlegElement = document.getElementById("type-text");
 let uitlegIndex = 0;
 
-function typeUitleg(){
+function typeUitleg() {
+    if (!uitlegElement) return;
 
-    if(!uitlegElement) return;
-
-    if(uitlegIndex < uitlegTekst.length){
+    if (uitlegIndex < uitlegTekst.length) {
         uitlegElement.innerHTML += uitlegTekst.charAt(uitlegIndex);
         uitlegIndex++;
-        setTimeout(typeUitleg, 35);
+        setTimeout(typeUitleg, 35); // snelheid typen
     }
 }
 
