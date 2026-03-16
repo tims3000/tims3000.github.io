@@ -116,15 +116,28 @@ button:hover{
 <script>
 function checkAntwoord(){
 
-let tor = document.getElementById("tor").checked;
-let vpn = document.getElementById("vpn").checked;
+    // check welke checkboxen aangevinkt zijn
+    let tor = document.getElementById("tor").checked;
+    let vpn = document.getElementById("vpn").checked;
 
-if(tor && vpn){
-    window.location.href = "kamer4.10.html";
-}
-else{
-    alert("Niet helemaal goed... Probeer opnieuw.");
-}
+    // alle checkboxen ophalen
+    const alleCheckboxes = document.querySelectorAll(".quiz-box input[type='checkbox']");
+
+    // check of er een foute checkbox is aangevinkt
+    let foutAangevinkt = false;
+    alleCheckboxes.forEach(cb => {
+        if(cb.checked && cb.id !== "tor" && cb.id !== "vpn"){
+            foutAangevinkt = true;
+        }
+    });
+
+    // alleen doorgaan als tor + vpn aangevinkt zijn en geen foute aangevinkt
+    if(tor && vpn && !foutAangevinkt){
+        window.location.href = "kamer4.10.html";
+    }
+    else{
+        alert("Niet helemaal goed... Probeer opnieuw. Alleen Tor Browser en een betrouwbare VPN moeten aangevinkt zijn.");
+    }
 
 }
 
