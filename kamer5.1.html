@@ -66,9 +66,7 @@ body {
 
 <script>
 function resetGame() {
-    localStorage.removeItem('juwelenSlots');
-    localStorage.removeItem('startTime');
-    localStorage.removeItem('endTime');
+    localStorage.clear(); // alles verwijderen
 }
 
 const juweelWaarden = {
