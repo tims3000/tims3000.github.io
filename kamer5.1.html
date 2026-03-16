@@ -45,15 +45,6 @@
     font-size: 2rem;
     margin-top: 50px;
 }
-
-#typewriter {
-    font-family: 'Creepster', cursive;
-    font-size: 2rem;
-    color: #f5f5f5;
-    text-align: center;
-    margin-top: 20px;
-    white-space: pre; /* behoudt spaties en enter */
-}
     </style>
 </head>
 <body>
@@ -62,38 +53,9 @@
 
 <div id="totaal"></div>
 
-<div id="typewriter"></div>
-
 </body>
 
 <script>
-
-    const zinnen = [
-    "Gefeliciteerd!",
-    "Je hebt een totaal van €250.000 buitgemaakt!",
-    "En je deed er 12 minuten en 34 seconden over!"
-];
-
-let zinIndex = 0;
-let charIndex = 0;
-
-function typeNext() {
-    if(zinIndex < zinnen.length){
-        const zin = zinnen[zinIndex];
-        if(charIndex < zin.length){
-            container.innerHTML += zin.charAt(charIndex);
-            charIndex++;
-            setTimeout(typeNext, 100);
-        } else {
-            container.innerHTML += "\n"; // nieuwe regel
-            zinIndex++;
-            charIndex = 0;
-            setTimeout(typeNext, 500); // korte pauze tussen zinnen
-        }
-    }
-}
-
-typeNext();
 
 function resetGame(){
     localStorage.removeItem('juwelenSlots');
