@@ -1,49 +1,42 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-<meta charset="UTF-8"> <!-- Zet de tekenset naar UTF-8 zodat speciale tekens correct worden weergegeven -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Zorgt dat het goed schaalt op mobiel -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Escape Room</title>
-
-<!-- Google Fonts toevoegen voor verschillende stijlen -->
 <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
-/* Basis instellingen voor html en body zodat hele pagina 100% hoogte gebruikt en geen marges heeft */
 html, body {
     height: 100%;
     margin: 0;
 }
 
-/* Body styling: achtergrond, centreren van content, tekstkleur en schaduw voor leesbaarheid */
 body {
     background: url('img/startachtergrond.jpg') no-repeat center center/cover;
-    display: flex;                 /* Flexbox gebruiken voor centreren */
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: #f5f5f5;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    text-shadow: 0 0 10px rgba(0,0,0,0.9); /* Tekst beter leesbaar op achtergrond */
+    text-shadow: 0 0 10px rgba(0,0,0,0.9);
 }
 
-/* Titel styling */
 h1 {
-    font-family: 'Creepster', cursive; /* Mysterieuze / escaperoom vibe */
+    font-family: 'Creepster', cursive;
     font-size: 5em;
     margin: 0.2em 0;
-    letter-spacing: 4px; /* Meer ruimte tussen letters voor stijl */
+    letter-spacing: 4px;
 }
 
-/* Paragraaf styling */
 p {
     font-size: 2em;
     margin: 0.5em 0 2em 0;
-    opacity: 0.9; /* Net iets doorschijnend voor effect */
+    opacity: 0.9;
 }
 
-/* Start knop styling */
 .start-button {
     padding: 1em 2.5em;
     font-size: 1.5em;
@@ -52,32 +45,29 @@ p {
     border: none;
     border-radius: 12px;
     cursor: pointer;
-    box-shadow: 0 0 15px rgba(179, 0, 0, 0.7); /* Glow effect */
-    transition: transform 0.2s, box-shadow 0.2s; /* Soepele hover animatie */
+    box-shadow: 0 0 15px rgba(179, 0, 0, 0.7);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-/* Hover effect voor start knop */
 .start-button:hover {
-    transform: scale(1.1); /* Groter bij hover */
-    box-shadow: 0 0 30px rgba(255, 0, 0, 1); /* Intensere glow */
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 1);
 }
 
-/* Credits onderaan */
 .credits {
     position: absolute;
     bottom: 20px;
     font-size: 0.9em;
     opacity: 0.9;
     letter-spacing: 1px;
-        }
+}
 
-/* Uitleg-box bovenaan scherm */
 .uitleg-box {
     position: absolute;
     top: 10px;
     left: 50%;
-    transform: translateX(-50%); /* Horizontaal centreren */
-    background: rgba(0,0,0,0.6); /* Semi-transparant zwart */
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.6);
     padding: 3px;
     border-radius: 6px;
     max-width: 1200px;
@@ -86,72 +76,63 @@ p {
     font-size: 0.75rem;
     line-height: 1.1;
     color: #f5f5f5;
-    z-index: 1000; /* Zorgt dat het boven andere elementen komt */
-    word-wrap: break-word; /* Lange woorden worden netjes gebroken */
+    z-index: 1000;
+    word-wrap: break-word;
 }
 
-        /* Knipperende cursor voor type-effect */
-        #type-text::after {
-            content: "|";
-            margin-left: 2px;
-            animation: knipper 1s infinite;
-        }
+#type-text::after {
+    content: "|";
+    margin-left: 2px;
+    animation: knipper 1s infinite;
+}
 
-        /* Animatie voor knipperende cursor */
-        @keyframes knipper {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-    </style>
+@keyframes knipper {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+</style>
 </head>
+
 <body>
-    <h1>Escape Room</h1>
-    <p>breek in de juwelier</p>
 
-    <!-- Link naar eerste kamer met start knop -->
-    <a href="kamer1.1.html">
-        <button class="start-button" onclick="startTimer()">Start</button>
-    </a>
+<h1>Escape Room</h1>
+<p>breek in de juwelier</p>
 
-    <!-- Credits -->
-    <div class="credits">
-        Gemaakt door: <br>
-        Francesco Mandas • Mike Boom • Thijs Kanbier • Tim Schiltmans
-    </div>
+<a href="kamer1.1.html">
+    <button class="start-button" onclick="startTimer()">Start</button>
+</a>
 
-    <!-- Uitleg box bovenaan scherm -->
-    <div class="uitleg-box">
-        <p id="type-text"></p>
-    </div>
+<div class="credits">
+    Gemaakt door: <br>
+    Francesco Mandas • Mike Boom • Thijs Kanbier • Tim Schiltmans
+</div>
 
-    <script>
-        // Functie startTimer: wordt aangeroepen als speler op start klikt
-        function startTimer() {
-            // Starttijd opslaan in localStorage zodat het in volgende pagina's gebruikt kan worden
-            localStorage.setItem('startTime', Date.now());
-            
-            // Reset oude data van juwelen-slots (voor herstart van spel)
-            localStorage.removeItem('juwelenSlots');
-        }
+<div class="uitleg-box">
+    <p id="type-text"></p>
+</div>
 
-        // Tekst die letter voor letter getypt wordt in uitleg-box
-        const uitlegTekst = "Welkom bij onze escaperoom! Het doel is om zo snel mogelijk de juwelen uit de juwelier te stelen en hiermee zoveel mogelijk geld te verdienen."; 
-        const uitlegElement = document.getElementById("type-text"); // Element waar tekst in komt
-        let uitlegIndex = 0; // Huidige positie in string
+<script>
+function startTimer() {
+    localStorage.setItem('startTime', Date.now());
+    localStorage.removeItem('juwelenSlots');
+}
 
-        // Functie voor type-effect
-        function typeUitleg() {
-            if (!uitlegElement) return; // Check of element bestaat
+const uitlegTekst = "Welkom bij onze escaperoom! Het doel is om zo snel mogelijk de juwelen uit de juwelier te stelen en hiermee zoveel mogelijk geld te verdienen."; 
+const uitlegElement = document.getElementById("type-text");
+let uitlegIndex = 0;
 
-            if (uitlegIndex < uitlegTekst.length) {
-                uitlegElement.innerHTML += uitlegTekst.charAt(uitlegIndex); // Voeg 1 karakter toe
-                uitlegIndex++;
-                setTimeout(typeUitleg, 30); // Wacht 30ms voor volgende karakter
-            }
-        }
+function typeUitleg() {
+    if (!uitlegElement) return;
+    if (uitlegIndex < uitlegTekst.length) {
+        uitlegElement.innerHTML += uitlegTekst.charAt(uitlegIndex);
+        uitlegIndex++;
+        setTimeout(typeUitleg, 30);
+    }
+}
 
-        typeUitleg(); // Start het typen bij laden van de pagina
-    </script>
+typeUitleg();
+</script>
+
 </body>
 </html>
