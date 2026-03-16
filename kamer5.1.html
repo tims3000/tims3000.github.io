@@ -60,53 +60,63 @@
 function resetGame(){
     localStorage.removeItem('juwelenSlots');
     localStorage.removeItem('startTime');
+    localStorage.removeItem('endTime');
 }
 
-    // Waarden per juweel
-    const juweelWaarden = {
-        1: 85000,
-        2: 32000,
-        3: 56000,
-        4: 47000,
-        5: 120000,
-        6: 250000,
-        7: 21000,
-        8: 39000,
-        9: 68000,
-        10: 74000
-    };
+// Waarden per juweel
+const juweelWaarden = {
+    1: 85000,
+    2: 32000,
+    3: 56000,
+    4: 47000,
+    5: 120000,
+    6: 250000,
+    7: 21000,
+    8: 39000,
+    9: 68000,
+    10: 74000
+};
 
-    // Gekozen juwelen ophalen
-    const gekozen = JSON.parse(localStorage.getItem("juwelenSlots")) || [];
+// Gekozen juwelen ophalen
+const gekozen = JSON.parse(localStorage.getItem("juwelenSlots")) || [];
 
-    // Totaal berekenen
-    let totaal = 0;
-    gekozen.forEach(juweelId => {
-        if(juweelId !== null){
-            totaal += juweelWaarden[juweelId];
-        }
-    });
-
-    // Tijd berekenen
-    const startTime = localStorage.getItem('startTime');
-    let tijdTekst = '';
-    if(startTime){
-        const eindTime = Date.now();
-        const diff = eindTime - startTime; // in milliseconds
-
-        const seconden = Math.floor(diff / 1000) % 60;
-        const minuten = Math.floor(diff / (1000 * 60)) % 60;
-        const uren = Math.floor(diff / (1000 * 60 * 60));
-
-        tijdTekst = `<p>Je deed er ${uren} uur, ${minuten} min, ${seconden} sec over!</p>`;
+// Totaal berekenen
+let totaal = 0;
+gekozen.forEach(juweelId => {
+    if(juweelId !== null){
+        totaal += juweelWaarden[juweelId];
     }
+});
 
-    // Toon totaal + tijd
-    document.getElementById("totaal").innerHTML = `
-        <h1>Gefeliciteerd!</h1>
-        <p>Je hebt een totaal van €${totaal} buitgemaakt!</p>
-        ${tijdTekst}
-    `;
+// Tijd berekenen
+const startTime = localStorage.getItem('startTime');
+let endTime = localStorage.getItem('endTime');
+
+// als eindtijd nog niet bestaat -> nu opslaan
+if(!endTime){
+    endTime = Date.now();
+    localStorage.setItem('endTime', endTime);
+}
+
+let tijdTekst = '';
+
+if(startTime){
+    const diff = endTime - startTime;
+
+    const seconden = Math.floor(diff / 1000) % 60;
+    const minuten = Math.floor(diff / (1000 * 60)) % 60;
+    const uren = Math.floor(diff / (1000 * 60 * 60));
+
+    tijdTekst = `<p>Je deed er ${uren} uur, ${minuten} min, ${seconden} sec over!</p>`;
+}
+
+// Toon totaal + tijd
+document.getElementById("totaal").innerHTML = `
+    <h1>Gefeliciteerd!</h1>
+    <p>Je hebt een totaal van €${totaal} buitgemaakt!</p>
+    ${tijdTekst}
+`;
+
 </script>
 
 </html>
