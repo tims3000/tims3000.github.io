@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escape Room</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escape Room</title>
 
-    <!-- Google Font voor mysterious vibe -->
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
+<style>
+html, body {
+    height: 100%;
+    margin: 0;
+}
 
-        body {
-            background: url('img/einde.png') no-repeat center center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: #f5f5f5;
-        }
+body {
+    background: url('img/einde.png') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #f5f5f5;
+}
 
 .terug-knop {
     position: absolute;
@@ -35,46 +34,43 @@
     transition: background 0.3s;
 }
 
-        .terug-knop:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
+.terug-knop:hover {
+    background-color: rgba(0,0,0,0.8);
+}
 
-        #totaal {
+#totaal {
     text-align: center;
     font-family: 'Creepster', cursive;
     font-size: 2rem;
     margin-top: 50px;
 }
 
-#totaal::after{
+#totaal::after {
     content: "|";
     animation: knipper 1s infinite;
 }
 
-@keyframes knipper{
-    0%{opacity:1;}
-    50%{opacity:0;}
-    100%{opacity:1;}
+@keyframes knipper {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
 }
-    </style>
+</style>
 </head>
+
 <body>
 
 <a href="index.html" class="terug-knop" onclick="resetGame()">Opnieuw spelen</a>
 
 <div id="totaal"></div>
 
-</body>
-
 <script>
-
-function resetGame(){
+function resetGame() {
     localStorage.removeItem('juwelenSlots');
     localStorage.removeItem('startTime');
     localStorage.removeItem('endTime');
 }
 
-// Waarden per juweel
 const juweelWaarden = {
     1: 85000,
     2: 32000,
@@ -88,37 +84,31 @@ const juweelWaarden = {
     10: 74000
 };
 
-// Gekozen juwelen ophalen
 const gekozen = JSON.parse(localStorage.getItem("juwelenSlots")) || [];
 
-// Totaal berekenen
 let totaal = 0;
 gekozen.forEach(juweelId => {
-    if(juweelId !== null){
+    if (juweelId !== null) {
         totaal += juweelWaarden[juweelId];
     }
 });
 
-// Tijd berekenen
 const startTime = localStorage.getItem('startTime');
 let endTime = localStorage.getItem('endTime');
 
-// als eindtijd nog niet bestaat -> nu opslaan
-if(!endTime){
+if (!endTime) {
     endTime = Date.now();
     localStorage.setItem('endTime', endTime);
 }
 
 let tijdTekst = '';
 
-if(startTime){
+if (startTime) {
     const diff = endTime - startTime;
-
     const seconden = Math.floor(diff / 1000) % 60;
     const minuten = Math.floor(diff / (1000 * 60)) % 60;
     const uren = Math.floor(diff / (1000 * 60 * 60));
-
-    tijdTekst = `<p>Je deed er ${uren} uur, ${minuten} min, ${seconden} sec over!</p>`;
+    tijdTekst = `Je deed er ${uren} uur, ${minuten} min, ${seconden} sec over!`;
 }
 
 const container = document.getElementById("totaal");
@@ -126,19 +116,18 @@ const container = document.getElementById("totaal");
 const zinnen = [
     "Gefeliciteerd!",
     `Je hebt een totaal van €${totaal} buitgemaakt!`,
-    tijdTekst.replace(/<[^>]*>/g, "") // haalt <p> weg zodat alleen tekst overblijft
+    tijdTekst
 ];
 
 let zinIndex = 0;
 let charIndex = 0;
 
 function typeWriter() {
-
-    if(zinIndex >= zinnen.length) return;
+    if (zinIndex >= zinnen.length) return;
 
     const huidigeZin = zinnen[zinIndex];
 
-    if(charIndex === 0){
+    if (charIndex === 0) {
         const p = document.createElement("p");
         p.id = "zin-" + zinIndex;
         container.appendChild(p);
@@ -146,24 +135,19 @@ function typeWriter() {
 
     const element = document.getElementById("zin-" + zinIndex);
 
-    if(charIndex < huidigeZin.length){
-
+    if (charIndex < huidigeZin.length) {
         element.innerHTML += huidigeZin.charAt(charIndex);
         charIndex++;
-
-        setTimeout(typeWriter, 50); // snelheid typen
-
+        setTimeout(typeWriter, 50);
     } else {
-
         zinIndex++;
         charIndex = 0;
-
-        setTimeout(typeWriter, 600); // pauze tussen zinnen
+        setTimeout(typeWriter, 600);
     }
 }
 
 typeWriter();
-
 </script>
 
+</body>
 </html>

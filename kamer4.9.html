@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
-
 html, body {
     height: 100%;
     margin: 0;
@@ -17,10 +16,12 @@ html, body {
 body {
     background: url('img/autolaptop1.png') no-repeat center center/cover;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     color: #f5f5f5;
     font-family: 'Montserrat', sans-serif;
+    text-align: center;
 }
 
 .terug-knop {
@@ -39,25 +40,25 @@ body {
     background-color: rgba(0,0,0,0.8);
 }
 
-.quiz-box{
+.quiz-box {
     background: rgba(0,0,0,0.65);
-    padding:40px;
-    border-radius:10px;
-    text-align:left;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: left;
 }
 
-button{
-    margin-top:20px;
-    padding:10px 20px;
-    border:none;
-    border-radius:5px;
-    background:#444;
-    color:white;
-    cursor:pointer;
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #444;
+    color: white;
+    cursor: pointer;
 }
 
-button:hover{
-    background:#666;
+button:hover {
+    background: #666;
 }
 
 .uitleg-box {
@@ -65,17 +66,17 @@ button:hover{
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0,0,0,0.6); /* subtiel donker */
-    padding: 3px;           /* nog kleiner in hoogte, breder horizontaal */
-    border-radius: 6px;          /* kleine afgeronde hoeken */
-    max-width: 1200px;            /* breder blok */
+    background: rgba(0,0,0,0.6);
+    padding: 3px;
+    border-radius: 6px;
+    max-width: 1200px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.75rem;          /* klein lettertype */
-    line-height: 1.1;            /* compacte regels */
+    font-size: 0.75rem;
+    line-height: 1.1;
     color: #f5f5f5;
     z-index: 1000;
-    word-wrap: break-word;        /* tekst gaat netjes over meerdere regels */
+    word-wrap: break-word;
 }
 
 #type-text::after {
@@ -89,7 +90,6 @@ button:hover{
     50% { opacity: 0; }
     100% { opacity: 1; }
 }
-
 </style>
 </head>
 
@@ -98,15 +98,15 @@ button:hover{
 <a href="kamer4.8.html" class="terug-knop">Terug</a>
 
 <div class="quiz-box">
-<h2>Wat heb je nodig om veilig op het darkweb te browsen?</h2>
+    <h2>Wat heb je nodig om veilig op het darkweb te browsen?</h2>
 
-<label><input type="checkbox" id="tor"> Tor Browser</label><br>
-<label><input type="checkbox"> Google Chrome</label><br>
-<label><input type="checkbox"> Je normale internetprovider</label><br>
-<label><input type="checkbox" id="vpn"> Betrouwbare VPN</label><br>
-<label><input type="checkbox"> Alleen incognito modus</label><br>
+    <label><input type="checkbox" id="tor"> Tor Browser</label><br>
+    <label><input type="checkbox"> Google Chrome</label><br>
+    <label><input type="checkbox"> Je normale internetprovider</label><br>
+    <label><input type="checkbox" id="vpn"> Betrouwbare VPN</label><br>
+    <label><input type="checkbox"> Alleen incognito modus</label><br>
 
-<button onclick="checkAntwoord()">Controleer antwoord</button>
+    <button onclick="checkAntwoord()">Controleer antwoord</button>
 </div>
 
 <div class="uitleg-box">
@@ -114,31 +114,23 @@ button:hover{
 </div>
 
 <script>
-function checkAntwoord(){
-
-    // check welke checkboxen aangevinkt zijn
+function checkAntwoord() {
     let tor = document.getElementById("tor").checked;
     let vpn = document.getElementById("vpn").checked;
 
-    // alle checkboxen ophalen
     const alleCheckboxes = document.querySelectorAll(".quiz-box input[type='checkbox']");
-
-    // check of er een foute checkbox is aangevinkt
     let foutAangevinkt = false;
     alleCheckboxes.forEach(cb => {
-        if(cb.checked && cb.id !== "tor" && cb.id !== "vpn"){
+        if(cb.checked && cb.id !== "tor" && cb.id !== "vpn") {
             foutAangevinkt = true;
         }
     });
 
-    // alleen doorgaan als tor + vpn aangevinkt zijn en geen foute aangevinkt
-    if(tor && vpn && !foutAangevinkt){
+    if(tor && vpn && !foutAangevinkt) {
         window.location.href = "kamer4.10.html";
-    }
-    else{
+    } else {
         alert("Niet helemaal goed... Probeer opnieuw. Alleen Tor Browser en een betrouwbare VPN moeten aangevinkt zijn.");
     }
-
 }
 
 const uitlegTekst = "Oké, een paar dingen zijn erg belangrijk als je het dark web opgaat, dus zorg dat alles in orde is voordat je naar een plattegrond gaat zoeken."; 
@@ -151,7 +143,7 @@ function typeUitleg() {
     if (uitlegIndex < uitlegTekst.length) {
         uitlegElement.innerHTML += uitlegTekst.charAt(uitlegIndex);
         uitlegIndex++;
-        setTimeout(typeUitleg, 30); // snelheid typen
+        setTimeout(typeUitleg, 30);
     }
 }
 
