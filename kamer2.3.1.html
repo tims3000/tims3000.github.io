@@ -1,94 +1,93 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escape Room</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escape Room</title>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            font-family: 'Montserrat', sans-serif;
-        }
+<style>
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
 
-        body {
-            background: url('img/bureau.avif') no-repeat center center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: #f5f5f5;
-        }
+body {
+    background: url('img/bureau.avif') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #f5f5f5;
+}
 
-        .top-image {
-            margin-top: 40px;
-            text-align: center;
-        }
+.top-image {
+    margin-top: 40px;
+    text-align: center;
+}
 
-        .top-image img {
-            width: 550px;
-            height: auto;
-        }
+.top-image img {
+    width: 550px;
+    height: auto;
+}
 
-        .names-grid {
-            margin-top: 40px;
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+.names-grid {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
-        .names-grid button {
-            padding: 15px 25px;
-            font-size: 18px;
-            border-radius: 10px;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.2s, background 0.2s;
-        }
+.names-grid button {
+    padding: 15px 25px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
 
-        .names-grid button:hover {
-            transform: scale(1.05);
-            background: rgba(255,255,255,0.2);
-        }
+.names-grid button:hover {
+    transform: scale(1.05);
+    background: rgba(255,255,255,0.2);
+}
 
-                        .terug-knop {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            padding: 10px 20px;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: #f5f5f5;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
+.terug-knop {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #f5f5f5;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
 
-        .terug-knop:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
+.terug-knop:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
 
-                .uitleg-box {
+.uitleg-box {
     position: absolute;
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0,0,0,0.6); /* subtiel donker */
-    padding: 3px;           /* nog kleiner in hoogte, breder horizontaal */
-    border-radius: 6px;          /* kleine afgeronde hoeken */
-    max-width: 1200px;            /* breder blok */
+    background: rgba(0,0,0,0.6);
+    padding: 3px;
+    border-radius: 6px;
+    max-width: 1200px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.75rem;          /* klein lettertype */
-    line-height: 1.1;            /* compacte regels */
+    font-size: 0.75rem;
+    line-height: 1.1;
     color: #f5f5f5;
     z-index: 1000;
-    word-wrap: break-word;        /* tekst gaat netjes over meerdere regels */
+    word-wrap: break-word;
 }
 
 #type-text::after {
@@ -102,33 +101,32 @@
     50% { opacity: 0; }
     100% { opacity: 1; }
 }
-    </style>
+</style>
 </head>
+
 <body>
 
-    <div class="top-image">
-        <img src="img/id1.3.png" alt="Hoofd afbeelding">
-    </div>
+<div class="top-image">
+    <img src="img/id1.3.png" alt="Hoofd afbeelding">
+</div>
 
-    <!-- Namen onder ID -->
-    <div class="names-grid">
-        <button onclick="alert('Fout! Probeer opnieuw.')">China</button>
-        <button onclick="alert('Fout! Probeer opnieuw.')">Nederland</button>
-        <button onclick="alert('Fout! Probeer opnieuw.')">Afghanistan</button>
-        <button onclick="goNext()">Mexico</button>
-    </div>
+<div class="names-grid">
+    <button onclick="alert('Fout! Probeer opnieuw.')">China</button>
+    <button onclick="alert('Fout! Probeer opnieuw.')">Nederland</button>
+    <button onclick="alert('Fout! Probeer opnieuw.')">Afghanistan</button>
+    <button onclick="goNext()">Mexico</button>
+</div>
 
- <a href="kamer2.2.1.html" class="terug-knop">Terug</a>
+<a href="kamer2.2.1.html" class="terug-knop">Terug</a>
 
-  <div class="uitleg-box">
+<div class="uitleg-box">
     <p id="type-text"></p>
 </div>
 
-    <script>
-        function goNext() {
-            // Naar de volgende pagina
-            window.location.href = "kamer2.4.1.html";
-        }
+<script>
+function goNext() {
+    window.location.href = "kamer2.4.1.html";
+}
 
 const uitlegTekst = "Je hebt een foto, een geboortedatum en een naam gekozen. Voeg er nu een realistische afkomst aan toe."; 
 const uitlegElement = document.getElementById("type-text");
@@ -140,12 +138,12 @@ function typeUitleg() {
     if (uitlegIndex < uitlegTekst.length) {
         uitlegElement.innerHTML += uitlegTekst.charAt(uitlegIndex);
         uitlegIndex++;
-        setTimeout(typeUitleg, 30); // snelheid typen
+        setTimeout(typeUitleg, 30);
     }
 }
 
 typeUitleg();
-    </script>
+</script>
 
 </body>
 </html>
