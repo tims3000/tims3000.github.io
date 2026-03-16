@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
-
 html, body {
     height: 100%;
     margin: 0;
@@ -45,10 +44,10 @@ body {
     position: fixed;
     bottom: 230px;
     right: 35%;
-    transform: translateX(50%); /* Alleen horizontaal centreren */
+    transform: translateX(50%);
     width: 300px;
     height: 350px;
-    background-color: rgba(255, 255, 255, 0.0);
+    background-color: rgba(255, 255, 255, 0);
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -58,10 +57,10 @@ body {
     position: fixed;
     bottom: 230px;
     left: 35%;
-    transform: translateX(-50%); /* Horizontaal corrigeren vanaf rechts */
+    transform: translateX(-50%);
     width: 300px;
     height: 350px;
-    background-color: rgba(255, 255, 255, 0.0);
+    background-color: rgba(255, 255, 255, 0);
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -72,17 +71,17 @@ body {
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0,0,0,0.6); /* subtiel donker */
-    padding: 3px;           /* nog kleiner in hoogte, breder horizontaal */
-    border-radius: 6px;          /* kleine afgeronde hoeken */
-    max-width: 1200px;            /* breder blok */
+    background: rgba(0,0,0,0.6);
+    padding: 3px;
+    border-radius: 6px;
+    max-width: 1200px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.75rem;          /* klein lettertype */
-    line-height: 1.1;            /* compacte regels */
+    font-size: 0.75rem;
+    line-height: 1.1;
     color: #f5f5f5;
     z-index: 1000;
-    word-wrap: break-word;        /* tekst gaat netjes over meerdere regels */
+    word-wrap: break-word;
 }
 
 #type-text::after {
@@ -96,7 +95,6 @@ body {
     50% { opacity: 0; }
     100% { opacity: 1; }
 }
-
 </style>
 </head>
 
@@ -112,7 +110,7 @@ body {
     <p id="type-text"></p>
 </div>
 
-    <script>
+<script>
 const uitlegTekst = "Oké, je moet de slagboom hacken, maar hiervoor heb je eerst een wachtwoord nodig. Misschien staat er iets in de logs van het systeem."; 
 const uitlegElement = document.getElementById("type-text");
 let uitlegIndex = 0;
@@ -123,12 +121,12 @@ function typeUitleg() {
     if (uitlegIndex < uitlegTekst.length) {
         uitlegElement.innerHTML += uitlegTekst.charAt(uitlegIndex);
         uitlegIndex++;
-        setTimeout(typeUitleg, 30); // snelheid typen
+        setTimeout(typeUitleg, 30);
     }
 }
 
 typeUitleg();
-    </script>
+</script>
 
 </body>
 </html>
