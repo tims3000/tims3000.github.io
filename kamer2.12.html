@@ -1,73 +1,67 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escape Room</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escape Room</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
+<style>
+html, body {
+    height: 100%;
+    margin: 0;
+}
 
-        body {
-            background: url('img/desktopachtergrond.png') no-repeat center center/cover;
-            position: relative;
-            color: #f5f5f5;
-        }
+body {
+    background: url('img/desktopachtergrond.png') no-repeat center center/cover;
+    position: relative;
+    color: #f5f5f5;
+}
 
-        .terug-knop {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            padding: 10px 20px;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: #f5f5f5;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
+.terug-knop {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #f5f5f5;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
 
-        .terug-knop:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
+.terug-knop:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
 
-        /* ============================= */
-        /* HIER KUN JE POSITIE & GROOTTE AANPASSEN */
-        .schakelaar {
-            position: absolute;
+.schakelaar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: auto;
+    cursor: pointer;
+}
 
-            top: 50%;       /* verticale positie */
-            left: 50%;      /* horizontale positie */
-            transform: translate(-50%, -50%); /* perfect midden */
-
-            width: 300px;   /* breedte aanpassen */
-            height: auto;   /* hoogte automatisch */
-            cursor: pointer;
-        }
-        /* ============================= */
-
-
-                                .uitleg-box {
+.uitleg-box {
     position: absolute;
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0,0,0,0.6); /* subtiel donker */
-    padding: 3px;           /* nog kleiner in hoogte, breder horizontaal */
-    border-radius: 6px;          /* kleine afgeronde hoeken */
-    max-width: 1200px;            /* breder blok */
+    background: rgba(0,0,0,0.6);
+    padding: 3px;
+    border-radius: 6px;
+    max-width: 1200px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.75rem;          /* klein lettertype */
-    line-height: 1.1;            /* compacte regels */
+    font-size: 0.75rem;
+    line-height: 1.1;
     color: #f5f5f5;
     z-index: 1000;
-    word-wrap: break-word;        /* tekst gaat netjes over meerdere regels */
+    word-wrap: break-word;
 }
 
 #type-text::after {
@@ -81,45 +75,37 @@
     50% { opacity: 0; }
     100% { opacity: 1; }
 }
-    </style>
+</style>
 </head>
+
 <body>
 
-    <a href="kamer2.11.html" class="terug-knop">Terug</a>
+<a href="kamer2.11.html" class="terug-knop">Terug</a>
 
-    <!-- Schakelaar -->
-    <img src="img/on.png" id="schakelaar" class="schakelaar" alt="Schakelaar">
+<img src="img/on.png" id="schakelaar" class="schakelaar" alt="Schakelaar">
 
-            <div class="uitleg-box">
+<div class="uitleg-box">
     <p id="type-text"></p>
 </div>
 
 <script>
-    const schakelaar = document.getElementById("schakelaar");
+const schakelaar = document.getElementById("schakelaar");
 
-    // 🔹 Controleer bij laden van pagina wat de status is
-    const status = localStorage.getItem("schakelaarStatus2");
+const status = localStorage.getItem("schakelaarStatus2");
 
-    if (status === "off") {
-        schakelaar.src = "img/off.png";
-    } else {
-        schakelaar.src = "img/on.png";
-    }
+if (status === "off") {
+    schakelaar.src = "img/off.png";
+} else {
+    schakelaar.src = "img/on.png";
+}
 
-    // 🔹 Klik event
-    schakelaar.addEventListener("click", function() {
+schakelaar.addEventListener("click", function() {
+    schakelaar.src = "img/off.png";
+    localStorage.setItem("schakelaarStatus2", "off");
+    alert("Bekend apparaat dus de firewall laat de actie toe...");
+});
 
-        // Zet naar OFF
-        schakelaar.src = "img/off.png";
-
-        // Sla op in localStorage
-        localStorage.setItem("schakelaarStatus2", "off");
-
-        // Alert
-        alert("Bekend apparaat dus de firewall laat de actie toe...");
-    });
-
-            const uitlegTekst = "Hopelijk kun je op deze computer de elektriciteit uitschakelen, omdat dit een bekend apparaat is bij de firewall. De firewall staat namelijk alleen bekende apparaten toe om acties uit te voeren."; 
+const uitlegTekst = "Hopelijk kun je op deze computer de elektriciteit uitschakelen, omdat dit een bekend apparaat is bij de firewall. De firewall staat namelijk alleen bekende apparaten toe om acties uit te voeren."; 
 const uitlegElement = document.getElementById("type-text");
 let uitlegIndex = 0;
 
@@ -129,7 +115,7 @@ function typeUitleg() {
     if (uitlegIndex < uitlegTekst.length) {
         uitlegElement.innerHTML += uitlegTekst.charAt(uitlegIndex);
         uitlegIndex++;
-        setTimeout(typeUitleg, 30); // snelheid typen
+        setTimeout(typeUitleg, 30);
     }
 }
 

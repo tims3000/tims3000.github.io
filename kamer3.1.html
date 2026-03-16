@@ -1,45 +1,43 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escape Room</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escape Room</title>
 
-    <!-- Google Font voor mysterious vibe -->
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
+<style>
+html, body {
+    height: 100%;
+    margin: 0;
+}
 
-        body {
-            background: url('img/binneninjuwelier1.png') no-repeat center center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: #f5f5f5;
-        }
+body {
+    background: url('img/binneninjuwelier1.png') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #f5f5f5;
+}
 
-        .terug-knop {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            padding: 10px 20px;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: #f5f5f5;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
+.terug-knop {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #f5f5f5;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
 
-        .terug-knop:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
+.terug-knop:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
 
 .laptop {
     position: absolute;
@@ -65,28 +63,27 @@
 
 .puzzel {
     position: absolute;
-    bottom: 10px;     /* verticale positie aanpassen */
-    right: 10px;    /* horizontale positie aanpassen */
+    bottom: 10px;
+    right: 10px;
     transform: translate(-50%, -50%);
-    width: 50px; /* grootte aanpassen */
+    width: 50px;
     height: auto;
     cursor: pointer;
 }
 
 .code-button {
     position: absolute;
-    top: 45%;              /* iets boven het midden */
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
-    background: none;      /* standaard button stijl weg */
+    background: none;
     border: none;
     padding: 0;
     cursor: pointer;
 }
 
 .code-button img {
-    width: 120px;          /* grootte van de knop */
+    width: 120px;
     height: auto;
     display: block;
 }
@@ -96,17 +93,17 @@
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0,0,0,0.6); /* subtiel donker */
-    padding: 3px;           /* nog kleiner in hoogte, breder horizontaal */
-    border-radius: 6px;          /* kleine afgeronde hoeken */
-    max-width: 1200px;            /* breder blok */
+    background: rgba(0,0,0,0.6);
+    padding: 3px;
+    border-radius: 6px;
+    max-width: 1200px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.75rem;          /* klein lettertype */
-    line-height: 1.1;            /* compacte regels */
+    font-size: 0.75rem;
+    line-height: 1.1;
     color: #f5f5f5;
     z-index: 1000;
-    word-wrap: break-word;        /* tekst gaat netjes over meerdere regels */
+    word-wrap: break-word;
 }
 
 #type-text::after {
@@ -120,11 +117,12 @@
     50% { opacity: 0; }
     100% { opacity: 1; }
 }
-    </style>
+</style>
 </head>
+
 <body>
 
-    <a href="kamer2.7.html" class="terug-knop">Terug</a>
+<a href="kamer2.7.html" class="terug-knop">Terug</a>
 
 <a href="kamer3.3.html" class="laptop">
     <img src="img/laptop.png" alt="folder">
@@ -143,24 +141,18 @@
     <p id="type-text"></p>
 </div>
 
-</body>
-
-
-    <script>
-        function checkCode() {
-            const juisteCode = "1039"; // stel hier de juiste code in
-            let invoer = prompt("Voer de code in:");
-            
-            if (invoer === null) return; // gebruiker annuleert
-            if (invoer === juisteCode) {
-                // juiste code → volgende pagina
-                 alert("De code is goed! Je gaat door naar de volgende pagina.");
-                location.href = "kamer3.5.html";
-            } else {
-                // foutmelding
-                alert("Foute code, probeer het opnieuw!");
-            }
-        }
+<script>
+function checkCode() {
+    const juisteCode = "1039";
+    let invoer = prompt("Voer de code in:");
+    if (invoer === null) return;
+    if (invoer === juisteCode) {
+        alert("De code is goed! Je gaat door naar de volgende pagina.");
+        location.href = "kamer3.5.html";
+    } else {
+        alert("Foute code, probeer het opnieuw!");
+    }
+}
 
 const uitlegTekst = "Goed, je hebt de elektriciteit uitgeschakeld, dus je kunt nu veilig rondlopen. Zorg er nu nog voor dat je de vitrine open krijgt en de duurste juwelen meeneemt."; 
 const uitlegElement = document.getElementById("type-text");
@@ -168,15 +160,15 @@ let uitlegIndex = 0;
 
 function typeUitleg() {
     if (!uitlegElement) return;
-
     if (uitlegIndex < uitlegTekst.length) {
         uitlegElement.innerHTML += uitlegTekst.charAt(uitlegIndex);
         uitlegIndex++;
-        setTimeout(typeUitleg, 30); // snelheid typen
+        setTimeout(typeUitleg, 30);
     }
 }
 
 typeUitleg();
-    </script>
+</script>
 
+</body>
 </html>
