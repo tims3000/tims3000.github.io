@@ -1,45 +1,43 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escape Room</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escape Room</title>
 
-    <!-- Google Font voor mysterious vibe -->
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
+<style>
+html, body {
+    height: 100%;
+    margin: 0;
+}
 
-        body {
-            background: url('img/binneninjuwelier.png') no-repeat center center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: #f5f5f5;
-        }
+body {
+    background: url('img/binneninjuwelier.png') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #f5f5f5;
+}
 
-        .terug-knop {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            padding: 10px 20px;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: #f5f5f5;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
+.terug-knop {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #f5f5f5;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
 
-        .terug-knop:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
+.terug-knop:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
 
 .laptop {
     position: absolute;
@@ -63,38 +61,34 @@
     height: auto;
 }
 
-        /* Vierkante knop rechtsonder */
-        .next-button {
-            position: fixed;
-            bottom: 100px;
-            right: 5px;
-            width: 200px;
-            height: 600px;
-            background-color: rgba(255, 255, 255, 0.0);
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-        }
+.next-button {
+    position: fixed;
+    bottom: 100px;
+    right: 5px;
+    width: 200px;
+    height: 600px;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
 
 .diamant {
     position: absolute;
-
-    top: 45%;     /* verticale positie aanpassen */
-    left: 50%;    /* horizontale positie aanpassen */
+    top: 45%;
+    left: 50%;
     transform: translate(-50%, -50%);
-
-    width: 175px; /* grootte aanpassen */
+    width: 175px;
     height: auto;
-
     cursor: pointer;
 }
 
 .klok1039 {
     position: absolute;
-    top: 175px;     /* verticale positie aanpassen */
-    left: 425px;    /* horizontale positie aanpassen */
+    top: 175px;
+    left: 425px;
     border-radius: 100%;
-    width: 115px; /* grootte aanpassen */
+    width: 115px;
     height: auto;
 }
 
@@ -103,17 +97,17 @@
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0,0,0,0.6); /* subtiel donker */
-    padding: 3px;           /* nog kleiner in hoogte, breder horizontaal */
-    border-radius: 6px;          /* kleine afgeronde hoeken */
-    max-width: 1200px;            /* breder blok */
+    background: rgba(0,0,0,0.6);
+    padding: 3px;
+    border-radius: 6px;
+    max-width: 1200px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.75rem;          /* klein lettertype */
-    line-height: 1.1;            /* compacte regels */
+    font-size: 0.75rem;
+    line-height: 1.1;
     color: #f5f5f5;
     z-index: 1000;
-    word-wrap: break-word;        /* tekst gaat netjes over meerdere regels */
+    word-wrap: break-word;
 }
 
 #type-text::after {
@@ -127,12 +121,14 @@
     50% { opacity: 0; }
     100% { opacity: 1; }
 }
-    </style>
+</style>
 </head>
-<body>
-      <button class="next-button" onclick="location.href='kamer2.9.html'"></button>
 
-    <a href="kamer2.6.html" class="terug-knop">Terug</a>
+<body>
+
+<button class="next-button" onclick="location.href='kamer2.9.html'"></button>
+
+<a href="kamer2.6.html" class="terug-knop">Terug</a>
 
 <a href="kamer2.8.html" class="laptop">
     <img src="img/laptop.png" alt="folder">
@@ -147,24 +143,18 @@
     <p id="type-text"></p>
 </div>
 
-</body>
-
 <script>
-    const diamant = document.getElementById("diamant");
+const diamant = document.getElementById("diamant");
 
-    diamant.addEventListener("click", function() {
+diamant.addEventListener("click", function() {
+    const status = localStorage.getItem("schakelaarStatus2");
 
-        const status = localStorage.getItem("schakelaarStatus2");
-
-        if (status === "off") {
-            // Firewall staat uit → je mag verder
-            window.location.href = "kamer3.1.html";
-        } else {
-            // Firewall staat nog aan → alarm!
-            alert("⚠ PAS OP! Nog één stap verder en het alarm was afgegaan!");
-        }
-
-    });
+    if (status === "off") {
+        window.location.href = "kamer3.1.html";
+    } else {
+        alert("⚠ PAS OP! Nog één stap verder en het alarm was afgegaan!");
+    }
+});
 
 const uitlegTekst = "Oké, goed, je bent binnen. Zorg er nu voor dat je de juwelen veilig kunt pakken zonder de politie te alarmeren."; 
 const uitlegElement = document.getElementById("type-text");
@@ -176,11 +166,12 @@ function typeUitleg() {
     if (uitlegIndex < uitlegTekst.length) {
         uitlegElement.innerHTML += uitlegTekst.charAt(uitlegIndex);
         uitlegIndex++;
-        setTimeout(typeUitleg, 30); // snelheid typen
+        setTimeout(typeUitleg, 30);
     }
 }
 
 typeUitleg();
 </script>
 
+</body>
 </html>

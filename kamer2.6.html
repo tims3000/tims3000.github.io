@@ -1,50 +1,49 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escape Room</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escape Room</title>
 
-    <!-- Google Font voor mysterious vibe -->
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
+<style>
+html, body {
+    height: 100%;
+    margin: 0;
+}
 
-        body {
-            background: url('img/juwelierwinkel.png') no-repeat center center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: #f5f5f5;
-        }
+body {
+    background: url('img/juwelierwinkel.png') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #f5f5f5;
+}
 
-        .terug-knop {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            padding: 10px 20px;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: #f5f5f5;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
+.terug-knop {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #f5f5f5;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
 
-        .terug-knop:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
+.terug-knop:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
 
 .scanner {
     position: absolute;
-    top: 400px;     /* afstand van boven */
-    right: 480px;    /* afstand van links */
-    width: 100px;   /* grootte van de scanner */
+    top: 400px;
+    right: 480px;
+    width: 100px;
     cursor: pointer;
     transition: transform 0.2s;
 }
@@ -53,22 +52,22 @@
     transform: scale(1.05);
 }
 
-                        .uitleg-box {
+.uitleg-box {
     position: absolute;
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0,0,0,0.6); /* subtiel donker */
-    padding: 3px;           /* nog kleiner in hoogte, breder horizontaal */
-    border-radius: 6px;          /* kleine afgeronde hoeken */
-    max-width: 1200px;            /* breder blok */
+    background: rgba(0,0,0,0.6);
+    padding: 3px;
+    border-radius: 6px;
+    max-width: 1200px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.75rem;          /* klein lettertype */
-    line-height: 1.1;            /* compacte regels */
+    font-size: 0.75rem;
+    line-height: 1.1;
     color: #f5f5f5;
     z-index: 1000;
-    word-wrap: break-word;        /* tekst gaat netjes over meerdere regels */
+    word-wrap: break-word;
 }
 
 #type-text::after {
@@ -82,11 +81,12 @@
     50% { opacity: 0; }
     100% { opacity: 1; }
 }
-    </style>
+</style>
 </head>
+
 <body>
 
-    <a href="kamer2.1.html" class="terug-knop">Terug</a>
+<a href="kamer2.1.html" class="terug-knop">Terug</a>
 
 <img src="img/scanner.png" alt="Scanner" class="scanner" id="scanner">
 
@@ -94,28 +94,20 @@
     <p id="type-text"></p>
 </div>
 
-</body>
-
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-
     document.getElementById("scanner").addEventListener("click", function() {
-
         let opgeslagenNummer = localStorage.getItem("toegangCode");
 
         if(opgeslagenNummer === "4") {
-            // Goed pasje → volgende pagina
             window.location.href = "kamer2.7.html";
         } else {
-            // Fout pasje
             alert("❌ Dit pasje werkt niet! Het moet wel een pasje zijn van iemand die daar werkt.");
         }
-
     });
-
 });
 
-        const uitlegTekst = "Scan het pasje en kijk of het werkt. Zo niet, moet je een nieuwe maken."; 
+const uitlegTekst = "Scan het pasje en kijk of het werkt. Zo niet, moet je een nieuwe maken."; 
 const uitlegElement = document.getElementById("type-text");
 let uitlegIndex = 0;
 
@@ -125,11 +117,12 @@ function typeUitleg() {
     if (uitlegIndex < uitlegTekst.length) {
         uitlegElement.innerHTML += uitlegTekst.charAt(uitlegIndex);
         uitlegIndex++;
-        setTimeout(typeUitleg, 30); // snelheid typen
+        setTimeout(typeUitleg, 30);
     }
 }
 
 typeUitleg();
 </script>
 
+</body>
 </html>
