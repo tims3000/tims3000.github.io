@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
-
 html, body {
     height: 100%;
     margin: 0;
@@ -80,17 +79,17 @@ body {
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0,0,0,0.6); /* subtiel donker */
-    padding: 3px;           /* nog kleiner in hoogte, breder horizontaal */
-    border-radius: 6px;          /* kleine afgeronde hoeken */
-    max-width: 1200px;            /* breder blok */
+    background: rgba(0,0,0,0.6);
+    padding: 3px;
+    border-radius: 6px;
+    max-width: 1200px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.75rem;          /* klein lettertype */
-    line-height: 1.1;            /* compacte regels */
+    font-size: 0.75rem;
+    line-height: 1.1;
     color: #f5f5f5;
     z-index: 1000;
-    word-wrap: break-word;        /* tekst gaat netjes over meerdere regels */
+    word-wrap: break-word;
 }
 
 #type-text::after {
@@ -104,7 +103,6 @@ body {
     50% { opacity: 0; }
     100% { opacity: 1; }
 }
-
 </style>
 </head>
 
@@ -125,7 +123,6 @@ body {
 </div>
 
 <script>
-
 function kiesSnelweg(){
     if(localStorage.getItem("laptopBezocht") !== "true"){
         alert("Wees voorzichtig met snel kiezen! Anders kan de politie je makkelijk pakken.");
@@ -138,7 +135,7 @@ function kiesTunnel(){
     if(localStorage.getItem("laptopBezocht") !== "true"){
         alert("Wees voorzichtig met snel kiezen! Anders kan de politie je makkelijk pakken.");
     } else {
-        window.location.href = "kamer4.8.html"; // volgende pagina
+        window.location.href = "kamer4.8.html";
     }
 }
 
@@ -152,12 +149,11 @@ function typeUitleg() {
     if (uitlegIndex < uitlegTekst.length) {
         uitlegElement.innerHTML += uitlegTekst.charAt(uitlegIndex);
         uitlegIndex++;
-        setTimeout(typeUitleg, 30); // snelheid typen
+        setTimeout(typeUitleg, 30);
     }
 }
 
 typeUitleg();
-
 </script>
 
 </body>

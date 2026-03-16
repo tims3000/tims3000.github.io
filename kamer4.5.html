@@ -76,17 +76,17 @@ input {
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0,0,0,0.6); /* subtiel donker */
-    padding: 3px;           /* nog kleiner in hoogte, breder horizontaal */
-    border-radius: 6px;          /* kleine afgeronde hoeken */
-    max-width: 1200px;            /* breder blok */
+    background: rgba(0,0,0,0.6);
+    padding: 3px;
+    border-radius: 6px;
+    max-width: 1200px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.75rem;          /* klein lettertype */
-    line-height: 1.1;            /* compacte regels */
+    font-size: 0.75rem;
+    line-height: 1.1;
     color: #f5f5f5;
     z-index: 1000;
-    word-wrap: break-word;        /* tekst gaat netjes over meerdere regels */
+    word-wrap: break-word;
 }
 
 #type-text::after {
@@ -126,21 +126,21 @@ input {
 </div>
 
 <script>
-function toonWachtwoord(){
+function toonWachtwoord() {
     document.getElementById("wachtwoordBox").style.display = "block";
 }
 
-function checkWachtwoord(){
+function checkWachtwoord() {
     let ww = document.getElementById("wachtwoord").value;
     let slagboom = document.getElementById("slagboom");
     let melding = document.getElementById("melding");
 
-    if(ww === "Sp@rkie"){
+    if (ww === "Sp@rkie") {
         slagboom.textContent = "🔴 Dicht";
         melding.textContent = "Slagboom gaat dicht! De politie kan niet verder, lekker gedaan.";
-        setTimeout(function(){
+        setTimeout(function() {
             window.location.href = "kamer4.6.html";
-        },2000);
+        }, 2000);
     } else {
         melding.textContent = "❌ Fout wachtwoord!";
     }
@@ -156,7 +156,7 @@ function typeUitleg() {
     if (uitlegIndex < uitlegTekst.length) {
         uitlegElement.innerHTML += uitlegTekst.charAt(uitlegIndex);
         uitlegIndex++;
-        setTimeout(typeUitleg, 30); // snelheid typen
+        setTimeout(typeUitleg, 30);
     }
 }
 
