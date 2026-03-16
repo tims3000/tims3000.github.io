@@ -25,7 +25,6 @@ body {
     position: relative;
 }
 
-/* Container voor icoon + tekst */
 .icon-container {
     position: absolute;
     text-align: center;
@@ -38,17 +37,17 @@ body {
 }
 
 #agenda-container {
-    top: 125px; /* onder de plattegrond, pas afstand aan indien nodig */
+    top: 125px;
     right: 50px;
 }
 
 #folder-container {
-    top: 240px; /* onder de plattegrond, pas afstand aan indien nodig */
+    top: 240px;
     right: 50px;
 }
 
 .icon-container img {
-    width: 75px;    /* pas grootte aan */
+    width: 75px;
     height: auto;
 }
 
@@ -59,39 +58,39 @@ body {
     color: #fff;
 }
 
-        .terug-knop {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            padding: 10px 20px;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: #f5f5f5;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
+.terug-knop {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #f5f5f5;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
 
-        .terug-knop:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
+.terug-knop:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
 
-                .uitleg-box {
+.uitleg-box {
     position: absolute;
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0,0,0,0.6); /* subtiel donker */
-    padding: 3px;           /* nog kleiner in hoogte, breder horizontaal */
-    border-radius: 6px;          /* kleine afgeronde hoeken */
-    max-width: 1200px;            /* breder blok */
+    background: rgba(0,0,0,0.6);
+    padding: 3px;
+    border-radius: 6px;
+    max-width: 1200px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.75rem;          /* klein lettertype */
-    line-height: 1.1;            /* compacte regels */
+    font-size: 0.75rem;
+    line-height: 1.1;
     color: #f5f5f5;
     z-index: 1000;
-    word-wrap: break-word;        /* tekst gaat netjes over meerdere regels */
+    word-wrap: break-word;
 }
 
 #type-text::after {
@@ -107,15 +106,14 @@ body {
 }
 </style>
 </head>
+
 <body>
 
-<!-- Plattegrond -->
 <div id="plattegrond-container" class="icon-container" onclick="checkPassword()">
     <img src="img/plattegrond.png" alt="Plattegrond">
     <span>Bouw Plattegrond Juwelier</span>
 </div>
 
-<!-- Agenda -->
 <div id="agenda-container" class="icon-container" onclick="showAgenda()">
     <img src="img/agenda.png" alt="Agenda">
     <span>Agenda</span>
@@ -126,9 +124,9 @@ body {
     <span>Foto's Werk</span>
 </a>
 
-    <a href="kamer1.2.html" class="terug-knop">Terug</a>
+<a href="kamer1.2.html" class="terug-knop">Terug</a>
 
-        <div class="uitleg-box">
+<div class="uitleg-box">
     <p id="type-text"></p>
 </div>
 
@@ -137,10 +135,10 @@ function checkPassword() {
     let input = prompt("Voer het wachtwoord in:");
     const correct = "cgjxp";
 
-    if(input === null) return; // cancel knop
+    if(input === null) return;
     if(input.toLowerCase() === correct) {
         alert("Wachtwoord correct! Je gaat door naar de volgende pagina.");
-        window.location.href = "kamer1.6.html"; // pas aan naar jouw volgende pagina
+        window.location.href = "kamer1.6.html";
     } else {
         alert("Fout wachtwoord. Probeer het opnieuw!");
     }
@@ -152,7 +150,7 @@ function showAgenda() {
         "10:30 - Documenten controleren",
         "12:00 - Lunchpauze",
         "13:00 - Klantafspraak",
-        "14:30 - Morscode leren",  // jouw speciale item
+        "14:30 - Morscode leren",
         "15:00 - E-mails beantwoorden",
         "16:00 - Projectplanning"
     ];
@@ -170,7 +168,7 @@ function typeUitleg() {
     if (uitlegIndex < uitlegTekst.length) {
         uitlegElement.innerHTML += uitlegTekst.charAt(uitlegIndex);
         uitlegIndex++;
-        setTimeout(typeUitleg, 30); // snelheid typen
+        setTimeout(typeUitleg, 30);
     }
 }
 
